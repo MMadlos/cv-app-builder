@@ -15,8 +15,13 @@ function App() {
 	const [personalInfo, setPersonalInfo] = useState(examplePersonalInfo)
 	const [editedInfo, setEditedInfo] = useState(examplePersonalInfo)
 
-	function toggleEditInfo() {
-		setInfoEditing(!isInfoEditing)
+	function toggleEditInfo(e) {
+		const { editSection } = e.target.parentNode.dataset
+		const setPersonalToEdit = e.target.parentNode.className === "name"
+		console.log(setPersonalToEdit)
+
+		if (editSection === "personal" || setPersonalToEdit) setInfoEditing(!isInfoEditing)
+		if (editSection === "experience") setExperienceEditing(false)
 	}
 
 	function handleInfo(e) {
@@ -38,19 +43,22 @@ function App() {
 	const [experienceInfo, setExperienceInfo] = useState(exampleExperienceInfo)
 	const [experienceToEdit, setExperienceToEdit] = useState(emptyExperience)
 	const [experienceID, setExperienceID] = useState(0)
+	const [isExpEditing, setExperienceEditing] = useState(false)
 
 	function handleEditExperience(e) {
 		const { key } = e.target.parentNode.dataset
 
 		setExperienceToEdit(experienceInfo[key])
 		setExperienceID(parseInt(key))
+		setExperienceEditing(true)
 	}
 
 	function handleExperience(e) {
 		const { key } = e.target.dataset
 		const isCheckBox = e.target.type === "checkbox"
+		const isTextArea = e.target === "textarea"
 
-		const value = isCheckBox ? e.target.checked : e.target.value
+		const value = isCheckBox ? e.target.checked : isTextArea ? e.target.textContent : e.target.value
 
 		setExperienceToEdit({ ...experienceToEdit, [key]: value })
 	}
@@ -66,12 +74,13 @@ function App() {
 		})
 
 		setExperienceInfo(newExperience)
+		setExperienceEditing(false)
 	}
 
 	return (
 		<>
 			<main>
-				{/* {isInfoEditing ? (
+				{isInfoEditing ? (
 					<EditPersonalDetails
 						onClickReturn={toggleEditInfo}
 						dataToEdit={editedInfo}
@@ -83,17 +92,21 @@ function App() {
 						personalInfo={personalInfo}
 						onClick={toggleEditInfo}
 					/>
-				)} */}
+				)}
 
-				<EditExperience
-					editExperience={experienceToEdit}
-					onChange={handleExperience}
-					onClickSaveExp={handleSaveExp}
-				/>
-				<Experience
-					experienceData={experienceInfo}
-					onClickEdit={handleEditExperience}
-				/>
+				{isExpEditing ? (
+					<EditExperience
+						editExperience={experienceToEdit}
+						onChange={handleExperience}
+						onClickSaveExp={handleSaveExp}
+						onClickReturn={toggleEditInfo}
+					/>
+				) : (
+					<Experience
+						experienceData={experienceInfo}
+						onClickEdit={handleEditExperience}
+					/>
+				)}
 			</main>
 		</>
 	)

@@ -9,6 +9,7 @@ function EditPersonalDetails({ onClickReturn, dataToEdit, onChange, onClickSave 
 			<FormTitle
 				title="Editar información"
 				onClick={onClickReturn}
+				dataKey="personal"
 			/>
 
 			<div className="form">

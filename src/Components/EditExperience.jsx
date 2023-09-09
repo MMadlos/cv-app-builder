@@ -1,12 +1,16 @@
 import FormTitle from "./Units/edit-title"
 import FormInput from "./Units/edit-form"
 
-function EditExperience({ editExperience, onChange, onClickSaveExp }) {
+function EditExperience({ editExperience, onChange, onClickSaveExp, onClickReturn }) {
 	const { companyName, position, currentPosition, startDate, endDate, description } = editExperience
 
 	return (
 		<section className="edit experience">
-			<FormTitle title="Editar experiencia" />
+			<FormTitle
+				title="Editar experiencia"
+				onClick={onClickReturn}
+				dataKey="experience"
+			/>
 
 			<div className="form">
 				<FormInput
@@ -53,24 +57,14 @@ function EditExperience({ editExperience, onChange, onClickSaveExp }) {
 					onChange={onChange}
 				/>
 
-				<FormInput
+				<textarea
+					name="description"
 					id="description"
-					labelName="Descripción"
+					rows="5"
 					placeholder="Describe tus funciones en la empresa"
-					dataKey="description"
-					value={description}
-					onChange={onChange}
-				/>
-
-				{/* TODO -> Change FormInput for textarea */}
-				{/* <textarea
-					name="desc"
-					id="desc"
-					rows="10"
-					placeholder="Describe tus funciones en la empresa"
+					data-key="description"
 					value={description}
 					onChange={onChange}></textarea>
-                */}
 			</div>
 
 			<div className="btn-container">

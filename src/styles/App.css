@@ -323,6 +323,7 @@ section.experience {
 
 			> p {
 				line-height: 150%;
+				white-space: pre-line;
 			}
 		}
 	}
