@@ -5,6 +5,7 @@
 	--grey-border: #e2e1df;
 	--grey-icon: #999;
 	--black-text: #333;
+	--red-alert: #fc7d7d;
 }
 
 #root {
@@ -68,6 +69,7 @@ i {
 main {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	gap: 8px;
 }
 
@@ -146,7 +148,7 @@ section.personal-details {
 	padding: 32px;
 	max-width: 800px;
 	min-width: 400px;
-	margin: auto;
+	width: 100%;
 
 	display: flex;
 	flex-direction: column;
@@ -182,6 +184,79 @@ section.personal-details {
 			&:not(:last-of-type) {
 				margin-bottom: 12px;
 			}
+		}
+
+		.checkbox {
+			display: flex;
+			gap: 16px;
+			font-weight: 500;
+			margin-bottom: 12px;
+			align-items: center;
+
+			> input {
+				appearance: none;
+				width: 24px;
+				aspect-ratio: 1/1;
+				border-radius: 24px;
+				background-color: #fff;
+				font: inherit;
+				border: 1px solid var(--grey-icon);
+				border-radius: 4px;
+
+				display: grid;
+				place-content: center;
+
+				&::before {
+					--side: 13px;
+					--shadow: 24px;
+
+					content: "";
+					width: var(--side);
+					height: var(--side);
+					border-radius: 2px;
+					transform: scale(0);
+					transition: 120ms transform ease-in-out;
+					box-shadow: inset var(--shadow) var(--shadow) var(--main-color);
+				}
+
+				&:checked::before {
+					transform: scale(1);
+				}
+
+				&:checked {
+					border-color: var(--main-color);
+					border-width: 2px;
+				}
+
+				&:checked + label {
+					color: var(--main-color);
+				}
+			}
+		}
+
+		/* TODO --> Edit text area */
+		> textarea {
+			padding: 6px;
+			border-radius: 4px;
+			border: 1px solid var(--grey-icon);
+			resize: none;
+		}
+	}
+
+	.btn-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+
+		.delete-experience {
+			background: none;
+			color: var(--red-alert);
+			padding-left: 0;
+			padding-right: 0;
+			text-decoration: underline;
+			text-underline-offset: 4px;
+			font-weight: 500;
 		}
 	}
 }

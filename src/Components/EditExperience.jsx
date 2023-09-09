@@ -26,15 +26,16 @@ function EditExperience({ editExperience, onChange, onClickSaveExp }) {
 					onChange={onChange}
 				/>
 
-				<label htmlFor="currentPosition">Cargo actual</label>
-				<input
-					type="checkbox"
-					id="currentPosition"
-					data-key="currentPosition"
-					checked={currentPosition}
-					onChange={onChange}
-				/>
-
+				<div className="checkbox">
+					<input
+						type="checkbox"
+						id="currentPosition"
+						data-key="currentPosition"
+						checked={currentPosition}
+						onChange={onChange}
+					/>
+					<label htmlFor="currentPosition">Cargo actual</label>
+				</div>
 				<FormInput
 					id="startDate"
 					labelName="Start date"
@@ -60,14 +61,26 @@ function EditExperience({ editExperience, onChange, onClickSaveExp }) {
 					value={description}
 					onChange={onChange}
 				/>
+
+				{/* TODO -> Change FormInput for textarea */}
+				{/* <textarea
+					name="desc"
+					id="desc"
+					rows="10"
+					placeholder="Describe tus funciones en la empresa"
+					value={description}
+					onChange={onChange}></textarea>
+                */}
 			</div>
 
-			<button
-				id="save-info"
-				onClick={onClickSaveExp}>
-				Guardar
-			</button>
-			<button>Eliminar experiencia</button>
+			<div className="btn-container">
+				<button
+					id="save-info"
+					onClick={onClickSaveExp}>
+					Guardar
+				</button>
+				<button className="delete-experience">Eliminar experiencia</button>
+			</div>
 		</section>
 	)
 }
