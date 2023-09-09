@@ -138,13 +138,14 @@ section.personal-details {
 	}
 }
 
-/* EDIT PERSONAL DETAILS */
-.edit-info {
+/* EDIT FORM*/
+.edit {
 	border: 1px solid var(--grey-border);
 	border-radius: 16px;
 	background-color: var(--white-bg);
 	padding: 32px;
 	max-width: 800px;
+	min-width: 400px;
 	margin: auto;
 
 	display: flex;

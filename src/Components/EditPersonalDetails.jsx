@@ -5,7 +5,7 @@ function EditPersonalDetails({ onClickReturn, dataToEdit, onChange, onClickSave 
 	const { fullName, location, email, linkedin } = dataToEdit
 
 	return (
-		<section className="edit-info">
+		<section className="edit-info edit">
 			<FormTitle
 				title="Editar información"
 				onClick={onClickReturn}

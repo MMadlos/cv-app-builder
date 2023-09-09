@@ -2,18 +2,18 @@ import { useState } from "react"
 
 import "./styles/Reset.css"
 import "./styles/App.css"
-import { examplePersonalInfo, exampleExperienceInfo } from "./example-data"
+import { examplePersonalInfo, exampleExperienceInfo, emptyExperience } from "./example-data"
 
 import PersonalDetails from "./Components/PersonalDetails"
 import EditPersonalDetails from "./Components/EditPersonalDetails"
+
 import Experience from "./Components/Experience"
+import EditExperience from "./Components/EditExperience"
 
 function App() {
 	const [isInfoEditing, setInfoEditing] = useState(false)
 	const [personalInfo, setPersonalInfo] = useState(examplePersonalInfo)
 	const [editedInfo, setEditedInfo] = useState(examplePersonalInfo)
-
-	const [experienceInfo, setExperienceInfo] = useState(exampleExperienceInfo)
 
 	function toggleEditInfo() {
 		setInfoEditing(!isInfoEditing)
@@ -35,6 +35,39 @@ function App() {
 		setInfoEditing(false)
 	}
 
+	const [experienceInfo, setExperienceInfo] = useState(exampleExperienceInfo)
+	const [experienceToEdit, setExperienceToEdit] = useState(emptyExperience)
+	const [experienceID, setExperienceID] = useState(0)
+
+	function handleEditExperience(e) {
+		const { key } = e.target.parentNode.dataset
+
+		setExperienceToEdit(experienceInfo[key])
+		setExperienceID(parseInt(key))
+	}
+
+	function handleExperience(e) {
+		const { key } = e.target.dataset
+		const isCheckBox = e.target.type === "checkbox"
+
+		const value = isCheckBox ? e.target.checked : e.target.value
+
+		setExperienceToEdit({ ...experienceToEdit, [key]: value })
+	}
+
+	function handleSaveExp() {
+		const newExperience = []
+		experienceInfo.forEach((experience, index) => {
+			if (index === experienceID) {
+				newExperience.push(experienceToEdit)
+			} else {
+				newExperience.push(experience)
+			}
+		})
+
+		setExperienceInfo(newExperience)
+	}
+
 	return (
 		<>
 			<main>
@@ -52,7 +85,15 @@ function App() {
 					/>
 				)} */}
 
-				<Experience experienceData={experienceInfo} />
+				<EditExperience
+					editExperience={experienceToEdit}
+					onChange={handleExperience}
+					onClickSaveExp={handleSaveExp}
+				/>
+				<Experience
+					experienceData={experienceInfo}
+					onClickEdit={handleEditExperience}
+				/>
 			</main>
 		</>
 	)
