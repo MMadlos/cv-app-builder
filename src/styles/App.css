@@ -71,6 +71,13 @@ main {
 	flex-direction: column;
 	align-items: center;
 	gap: 8px;
+	flex-grow: 1;
+}
+
+section,
+.edit {
+	max-width: 800px;
+	min-width: 400px;
 }
 
 /* PERSONAL DETAILS */
@@ -146,8 +153,7 @@ section.personal-details {
 	border-radius: 16px;
 	background-color: var(--white-bg);
 	padding: 32px;
-	max-width: 800px;
-	min-width: 400px;
+
 	width: 100%;
 
 	display: flex;
