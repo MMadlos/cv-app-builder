@@ -2,7 +2,14 @@ function FormInput({ id, onChange, value, dataKey, placeholder, labelName, type 
 	return (
 		<>
 			<label htmlFor={id}>{labelName}</label>
-			<input onChange={onChange} value={value} type={type} id={id} data-key={dataKey} placeholder={placeholder} />
+			<input
+				onChange={onChange}
+				value={value}
+				type={type}
+				id={id}
+				data-key={dataKey}
+				placeholder={placeholder}
+			/>
 		</>
 	)
 }

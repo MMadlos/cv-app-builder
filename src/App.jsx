@@ -6,6 +6,7 @@ import { examplePersonalInfo } from "./example-data"
 
 import PersonalDetails from "./Components/PersonalDetails"
 import EditPersonalDetails from "./Components/EditPersonalDetails"
+import Experience from "./Components/Experience"
 
 function App() {
 	const [isInfoEditing, setInfoEditing] = useState(false)
@@ -36,10 +37,20 @@ function App() {
 		<>
 			<main>
 				{isInfoEditing ? (
-					<EditPersonalDetails onClickReturn={toggleEditInfo} dataToEdit={editedInfo} onChange={handleInfo} onClickSave={handleSaveInfo} />
+					<EditPersonalDetails
+						onClickReturn={toggleEditInfo}
+						dataToEdit={editedInfo}
+						onChange={handleInfo}
+						onClickSave={handleSaveInfo}
+					/>
 				) : (
-					<PersonalDetails personalInfo={personalInfo} onClick={toggleEditInfo} />
-				)}{" "}
+					<PersonalDetails
+						personalInfo={personalInfo}
+						onClick={toggleEditInfo}
+					/>
+				)}
+
+				<Experience />
 			</main>
 		</>
 	)

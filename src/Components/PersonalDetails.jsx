@@ -8,7 +8,9 @@ function PersonalDetails({ personalInfo, onClick }) {
 				<div className="picture"></div>
 				<div className="name">
 					<h1>{fullName ? fullName : "My name"}</h1>
-					<i className="fa-solid fa-pencil" onClick={onClick}></i>
+					<i
+						className="fa-solid fa-pencil"
+						onClick={onClick}></i>
 				</div>
 				<div className="additional-data">
 					<div>
