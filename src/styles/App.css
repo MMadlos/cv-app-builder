@@ -41,8 +41,34 @@ button.not-button {
 	background: none;
 }
 
+/* GENERIC */
+h1 {
+	font-size: 1.75rem;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+h3 {
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+h4 {
+	font-weight: 500;
+}
+
 i {
 	color: var(--black-text);
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 
 /* PERSONAL DETAILS */
@@ -76,11 +102,6 @@ section.personal-details {
 			align-items: center;
 			gap: 8px;
 			margin: 16px 0;
-
-			> h1 {
-				font-size: 1.5rem;
-				font-weight: 600;
-			}
 
 			> i {
 				color: var(--main-color);
@@ -164,79 +185,69 @@ section.personal-details {
 	}
 }
 
-/* OLD */
-/*
+/* EXPERIENCE SECTION */
 
-.form {
-	display: flex;
-	flex-direction: column;
-	gap: 24px;
-
-	> div {
-		background-color: lightgray;
-		padding: 16px;
-		border-radius: 4px;
-
-		> h2 {
-			font-size: 1.5rem;
-			font-weight: 600;
-			margin-bottom: 8px;
-		}
-
-		> input {
-			margin: 8px 0;
-		}
-	}
-
-	#form-experience {
-		display: flex;
-		flex-direction: column;
-
-		> button {
-			margin-top: 8px;
-			padding: 8px;
-			font-weight: 700;
-			border-radius: 4px;
-			border: 1px solid black;
-		}
-	}
-}
-
-.experience {
-	padding: 16px;
-
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
+section.experience {
+	border: 1px solid var(--grey-border);
+	border-radius: 16px;
+	background-color: var(--white-bg);
+	padding: 32px;
 
 	> h2 {
-		font-size: 1.5rem;
-		font-weight: 700;
-		margin-bottom: 16px;
-	}
-}
-
-.work-experience {
-	> h3 {
-		font-size: 1.25rem;
-		font-weight: 600;
+		margin-bottom: 32px;
 	}
 
-	> div {
+	.separator {
+		width: 100%;
+		height: 1px;
+		background-color: var(--grey-border);
+	}
+
+	.cards-container {
 		display: flex;
-		gap: 8px;
+		flex-direction: column;
+		gap: 32px;
 
-		> h4 {
-			font-weight: 500;
+		.experience-card {
+			position: relative;
+
+			> i {
+				position: absolute;
+				right: 0px;
+				top: -8px;
+
+				color: var(--main-color);
+				opacity: 70%;
+				padding: 12px;
+				border-radius: 100%;
+
+				&:hover {
+					opacity: 100%;
+					cursor: pointer;
+					background-color: var(--grey-bg);
+				}
+			}
+
+			> h3 {
+				margin-bottom: 4px;
+			}
+
+			.company-container {
+				display: flex;
+				gap: 4px;
+
+				> h4 {
+					margin-bottom: 16px;
+				}
+
+				> p {
+					color: var(--grey-icon);
+				}
+			}
+
+			> p {
+				line-height: 150%;
+			}
 		}
-
-		.active-date {
-			color: lightslategray;
-		}
-	}
-
-	> p {
-		margin-top: 8px;
 	}
 }
-*/
