@@ -7,11 +7,11 @@ const examplePersonalInfo = {
 
 const exampleExperienceInfo = {
 	id: 0,
-	companyName: "Google",
-	position: "Front-end developer",
+	companyName: "Nombre empresa",
+	position: "Nombre de la posición",
 	dateStart: "2020",
 	dateEnd: "2023",
-	description: "Lorem ipsum lara liro lorem ipsum larestun magestum",
+	description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem praesentium voluptatibus unde, cumque omnis sed? ",
 }
 
 export { examplePersonalInfo, exampleExperienceInfo }

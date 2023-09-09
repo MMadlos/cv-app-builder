@@ -1,32 +1,37 @@
-import CardExperience from "./Units/experience-card"
+import CardExperience from "./Units/CardExperience"
 
-function Experience() {
+function Experience({ experienceData }) {
+	const { position, companyName, startDate, endDate, description, id } = experienceData
+
 	return (
 		<section className="experience">
 			<h2>Experiencia laboral</h2>
 			<div className="cards-container">
 				<CardExperience
-					position="Nombre de la posición"
-					companyName="Nombre empresa"
-					startDate="2000"
-					endDate="2020"
-					description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem praesentium voluptatibus unde, cumque omnis sed? "
+					key={1}
+					position={position}
+					companyName={companyName}
+					startDate={startDate}
+					endDate={endDate}
+					description={description}
 				/>
 				<div className="separator"></div>
 				<CardExperience
-					position="Nombre de la posición"
-					companyName="Nombre empresa"
-					startDate="2000"
-					endDate="2020"
-					description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem praesentium voluptatibus unde, cumque omnis sed? Exercitationem delectus itaque sint beatae ipsam nisi reiciendis? Cupiditate, eos voluptatibus. Officia dolore corrupti sunt!"
+					key={2}
+					position={position}
+					companyName={companyName}
+					startDate={startDate}
+					endDate={endDate}
+					description={description}
 				/>
 				<div className="separator"></div>
 				<CardExperience
-					position="Nombre de la posición"
-					companyName="Nombre empresa"
-					startDate="2000"
-					endDate="2020"
-					description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem praesentium voluptatibus unde, cumque omnis sed? Exercitationem delectus itaque sint beatae ipsam nisi reiciendis? "
+					key={3}
+					position={position}
+					companyName={companyName}
+					startDate={startDate}
+					endDate={endDate}
+					description={description}
 				/>
 			</div>
 		</section>

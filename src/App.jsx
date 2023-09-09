@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import "./styles/Reset.css"
 import "./styles/App.css"
-import { examplePersonalInfo } from "./example-data"
+import { examplePersonalInfo, exampleExperienceInfo } from "./example-data"
 
 import PersonalDetails from "./Components/PersonalDetails"
 import EditPersonalDetails from "./Components/EditPersonalDetails"
@@ -12,6 +12,8 @@ function App() {
 	const [isInfoEditing, setInfoEditing] = useState(false)
 	const [personalInfo, setPersonalInfo] = useState(examplePersonalInfo)
 	const [editedInfo, setEditedInfo] = useState(examplePersonalInfo)
+
+	const [experienceInfo, setExperienceInfo] = useState(exampleExperienceInfo)
 
 	function toggleEditInfo() {
 		setInfoEditing(!isInfoEditing)
@@ -36,7 +38,7 @@ function App() {
 	return (
 		<>
 			<main>
-				{isInfoEditing ? (
+				{/* {isInfoEditing ? (
 					<EditPersonalDetails
 						onClickReturn={toggleEditInfo}
 						dataToEdit={editedInfo}
@@ -48,9 +50,9 @@ function App() {
 						personalInfo={personalInfo}
 						onClick={toggleEditInfo}
 					/>
-				)}
+				)} */}
 
-				<Experience />
+				<Experience experienceData={experienceInfo} />
 			</main>
 		</>
 	)
