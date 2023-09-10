@@ -1,8 +1,8 @@
 const examplePersonalInfo = {
-	fullName: "FirstName LastName",
-	location: "City, Country",
-	email: "firstName_lastName@emailprovider.com",
-	linkedin: "linkedin/firstname-lastname",
+	fullName: "Paquito Peras",
+	location: "Madrid, Spain",
+	email: "paquito_peras@example.com",
+	linkedin: "linkedin/paquito-peras",
 }
 
 const exampleExperienceInfo = [

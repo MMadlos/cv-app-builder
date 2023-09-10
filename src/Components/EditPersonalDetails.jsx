@@ -1,4 +1,4 @@
-import FormInput from "./Units/edit-form"
+import FormInput from "./Units/FormInput"
 import TitleSection from "./Units/TitleSection"
 
 function EditPersonalDetails({ onClickReturn, dataToEdit, onChange, onClickSave }) {
@@ -26,7 +26,6 @@ function EditPersonalDetails({ onClickReturn, dataToEdit, onChange, onClickSave 
 					labelName="Localización"
 					onChange={onChange}
 					value={location}
-					dataKey="location"
 					placeholder="Paris, Francia"
 				/>
 				<FormInput
@@ -34,7 +33,6 @@ function EditPersonalDetails({ onClickReturn, dataToEdit, onChange, onClickSave 
 					labelName="Email"
 					onChange={onChange}
 					value={email}
-					dataKey="email"
 					placeholder="paquito_peras@ejemplo.com"
 					type="email"
 				/>
@@ -43,8 +41,7 @@ function EditPersonalDetails({ onClickReturn, dataToEdit, onChange, onClickSave 
 					labelName="Linkedin"
 					onChange={onChange}
 					value={linkedin}
-					dataKey="linkedin"
-					placeholder="paquito_peras@ejemplo.com"
+					placeholder="linkedin.com/paquito-peras"
 				/>
 			</div>
 

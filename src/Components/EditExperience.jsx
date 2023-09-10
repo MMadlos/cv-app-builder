@@ -1,4 +1,4 @@
-import FormInput from "./Units/edit-form"
+import FormInput from "./Units/FormInput"
 import TitleSection from "./Units/TitleSection"
 
 function EditExperience({ editExperience, onChange, onClickSaveExp, onClickReturn }) {
@@ -16,25 +16,20 @@ function EditExperience({ editExperience, onChange, onClickSaveExp, onClickRetur
 				<FormInput
 					id="companyName"
 					labelName="Company name"
-					placeholder="Company name"
-					dataKey="companyName"
 					value={companyName}
 					onChange={onChange}
 				/>
 				<FormInput
 					id="position"
 					labelName="Position"
-					placeholder="Position"
-					dataKey="position"
 					value={position}
 					onChange={onChange}
 				/>
 
-				<div className="checkbox">
+				<div className="checkbox-container">
 					<FormInput
 						type="checkbox"
 						id="currentPosition"
-						data-key="currentPosition"
 						checked={currentPosition}
 						onChange={onChange}
 						labelName="Cargo actual"
@@ -43,28 +38,22 @@ function EditExperience({ editExperience, onChange, onClickSaveExp, onClickRetur
 				<FormInput
 					id="startDate"
 					labelName="Start date"
-					placeholder="Start date"
-					dataKey="startDate"
 					value={startDate}
 					onChange={onChange}
 				/>
 				<FormInput
 					id="endDate"
 					labelName="End date"
-					placeholder="End date"
-					dataKey="endDate"
 					value={endDate}
 					onChange={onChange}
 				/>
 
-				<textarea
-					name="description"
+				<FormInput
+					type="textarea"
 					id="description"
-					rows="5"
-					placeholder="Describe tus funciones en la empresa"
-					data-key="description"
 					value={description}
-					onChange={onChange}></textarea>
+					onChange={onChange}
+				/>
 			</div>
 
 			<div className="btn-container">

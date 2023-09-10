@@ -197,7 +197,7 @@ section.personal-details {
 			}
 		}
 
-		.checkbox {
+		.checkbox-container {
 			display: flex;
 			gap: 16px;
 			font-weight: 500;
@@ -247,7 +247,6 @@ section.personal-details {
 			}
 		}
 
-		/* TODO --> Edit text area */
 		> textarea {
 			padding: 6px;
 			border-radius: 4px;
