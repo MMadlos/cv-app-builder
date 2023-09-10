@@ -40,6 +40,11 @@ button:not(.not-button) {
 button.not-button {
 	border: none;
 	background: none;
+	cursor: pointer;
+
+	:hover {
+		opacity: 50%;
+	}
 }
 
 /* GENERIC */
@@ -277,8 +282,17 @@ section.experience {
 	background-color: var(--white-bg);
 	padding: 32px;
 
-	> h2 {
+	.title-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		margin-bottom: 32px;
+
+		> button {
+			display: flex;
+			gap: 8px;
+			align-items: center;
+		}
 	}
 
 	.separator {
