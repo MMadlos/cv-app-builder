@@ -18,7 +18,6 @@ function App() {
 	function toggleEditInfo(e) {
 		const { editSection } = e.target.parentNode.dataset
 		const setPersonalToEdit = e.target.parentNode.className === "name"
-		console.log(setPersonalToEdit)
 
 		if (editSection === "personal" || setPersonalToEdit) setInfoEditing(!isInfoEditing)
 		if (editSection === "experience") setExperienceEditing(false)
@@ -30,13 +29,9 @@ function App() {
 	}
 
 	function handleSaveInfo() {
-		for (let field in editedInfo) {
-			if (editedInfo[field] === "") {
-				editedInfo[field] = examplePersonalInfo[field]
-			}
-		}
+		const newInfo = editedInfo
 
-		setPersonalInfo(editedInfo)
+		setPersonalInfo(newInfo)
 		setInfoEditing(false)
 	}
 

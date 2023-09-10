@@ -31,14 +31,14 @@ function EditExperience({ editExperience, onChange, onClickSaveExp, onClickRetur
 				/>
 
 				<div className="checkbox">
-					<input
+					<FormInput
 						type="checkbox"
 						id="currentPosition"
 						data-key="currentPosition"
 						checked={currentPosition}
 						onChange={onChange}
+						labelName="Cargo actual"
 					/>
-					<label htmlFor="currentPosition">Cargo actual</label>
 				</div>
 				<FormInput
 					id="startDate"
