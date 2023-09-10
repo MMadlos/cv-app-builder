@@ -1,15 +1,15 @@
-import FormTitle from "./Units/edit-title"
 import FormInput from "./Units/edit-form"
+import TitleSection from "./Units/TitleSection"
 
 function EditExperience({ editExperience, onChange, onClickSaveExp, onClickReturn }) {
 	const { companyName, position, currentPosition, startDate, endDate, description } = editExperience
 
 	return (
 		<section className="edit experience">
-			<FormTitle
-				title="Editar experiencia"
-				onClick={onClickReturn}
-				dataKey="experience"
+			<TitleSection
+				isEdit={true}
+				sectionName="experience"
+				onClickReturn={onClickReturn}
 			/>
 
 			<div className="form">

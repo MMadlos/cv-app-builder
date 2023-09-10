@@ -1,15 +1,15 @@
-import FormTitle from "./Units/edit-title"
 import FormInput from "./Units/edit-form"
+import TitleSection from "./Units/TitleSection"
 
 function EditPersonalDetails({ onClickReturn, dataToEdit, onChange, onClickSave }) {
 	const { fullName, location, email, linkedin } = dataToEdit
 
 	return (
 		<section className="edit-info edit">
-			<FormTitle
-				title="Editar información"
-				onClick={onClickReturn}
-				dataKey="personal"
+			<TitleSection
+				isEdit={true}
+				onClickReturn={onClickReturn}
+				sectionName="personal"
 			/>
 
 			<div className="form">

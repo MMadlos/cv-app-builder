@@ -1,12 +1,14 @@
 import CardExperience from "./Units/CardExperience"
+import TitleSection from "./Units/TitleSection"
 
-function Experience({ experienceData, onClickEdit }) {
+function Experience({ experienceData, onClickEdit, onClickAddExp }) {
 	return (
 		<section className="experience">
-			<div className="title-container">
-				<h2>Experiencia laboral</h2>
-				<button>Añadir</button>
-			</div>
+			<TitleSection
+				sectionName="experience"
+				onClickAdd={onClickAddExp}
+			/>
+
 			<div className="cards-container">
 				{experienceData.map((experience) => {
 					return (

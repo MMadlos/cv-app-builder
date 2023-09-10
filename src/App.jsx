@@ -72,6 +72,15 @@ function App() {
 		setExperienceEditing(false)
 	}
 
+	function handeAddExperience() {
+		setExperienceEditing(true)
+		setExperienceToEdit(emptyExperience)
+
+		// Crear state si es edit o si es new
+		// If edit -> Modificar
+		// If new -> Añadir
+	}
+
 	return (
 		<>
 			<main>
@@ -100,6 +109,7 @@ function App() {
 					<Experience
 						experienceData={experienceInfo}
 						onClickEdit={handleEditExperience}
+						onClickAddExp={handeAddExperience}
 					/>
 				)}
 			</main>
