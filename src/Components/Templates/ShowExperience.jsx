@@ -1,7 +1,7 @@
-import CardExperience from "./Units/CardExperience"
-import TitleSection from "./Units/TitleSection"
+import CardExperience from "../Units/CardExperience"
+import TitleSection from "../Units/TitleSection"
 
-function Experience({ experienceData, onClickEdit, onClickAddExp }) {
+function ShowExperience({ experienceData, onClickEdit, onClickAddExp }) {
 	return (
 		<section className="experience">
 			<TitleSection
@@ -25,4 +25,4 @@ function Experience({ experienceData, onClickEdit, onClickAddExp }) {
 	)
 }
 
-export default Experience
+export default ShowExperience

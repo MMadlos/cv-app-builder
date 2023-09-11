@@ -1,6 +1,6 @@
-import FormInput from "./Units/FormInput"
-import TitleSection from "./Units/TitleSection"
-import Button from "./Units/Buttons"
+import FormInput from "../Units/FormInput"
+import TitleSection from "../Units/TitleSection"
+import Button from "../Units/Buttons"
 
 function EditPersonalDetails({ onClickReturn, dataToEdit, onChange, onClickSave }) {
 	const { fullName, location, email, linkedin } = dataToEdit

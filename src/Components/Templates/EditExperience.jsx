@@ -1,6 +1,6 @@
-import FormInput from "./Units/FormInput"
-import TitleSection from "./Units/TitleSection"
-import Button from "./Units/Buttons"
+import FormInput from "../Units/FormInput"
+import TitleSection from "../Units/TitleSection"
+import Button from "../Units/Buttons"
 
 function EditExperience({ editExperience, onChange, onClickSaveExp, onClickReturn }) {
 	const { companyName, position, currentPosition, startDate, endDate, description } = editExperience

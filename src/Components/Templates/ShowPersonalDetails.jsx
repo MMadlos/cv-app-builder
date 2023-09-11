@@ -1,4 +1,4 @@
-function PersonalDetails({ personalInfo, onClick }) {
+function ShowPersonalDetails({ personalInfo, onClick }) {
 	const { fullName, location, email, linkedin } = personalInfo
 
 	return (
@@ -33,4 +33,4 @@ function PersonalDetails({ personalInfo, onClick }) {
 	)
 }
 
-export default PersonalDetails
+export default ShowPersonalDetails
