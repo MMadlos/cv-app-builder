@@ -1,14 +1,18 @@
 function FormInput({ id, onChange, value, dataKey, placeholder, labelName, type = "text" }) {
-	type === "textarea" ? (
-		<textarea
-			name={id}
-			id={id}
-			rows="5"
-			placeholder="Describe tus funciones en la empresa"
-			data-key={dataKey ?? id}
-			value={value}
-			onChange={onChange}></textarea>
-	) : (
+	if (type === "textarea") {
+		return (
+			<textarea
+				name={id}
+				id={id}
+				rows="5"
+				placeholder="Describe tus funciones en la empresa"
+				data-key={dataKey ?? id}
+				value={value}
+				onChange={onChange}></textarea>
+		)
+	}
+
+	return (
 		<>
 			<label htmlFor={id}>{labelName}</label>
 			<input
