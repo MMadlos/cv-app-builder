@@ -1,5 +1,6 @@
 import FormInput from "./Units/FormInput"
 import TitleSection from "./Units/TitleSection"
+import Button from "./Units/Buttons"
 
 function EditExperience({ editExperience, onChange, onClickSaveExp, onClickReturn }) {
 	const { companyName, position, currentPosition, startDate, endDate, description } = editExperience
@@ -57,12 +58,12 @@ function EditExperience({ editExperience, onChange, onClickSaveExp, onClickRetur
 			</div>
 
 			<div className="btn-container">
-				<button
+				<Button
+					type="save"
 					id="save-info"
-					onClick={onClickSaveExp}>
-					Guardar
-				</button>
-				<button className="delete-experience">Eliminar experiencia</button>
+					onClick={onClickSaveExp}
+				/>
+				<Button type="delete" />
 			</div>
 		</section>
 	)

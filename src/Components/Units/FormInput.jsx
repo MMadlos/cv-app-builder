@@ -1,7 +1,5 @@
 function FormInput({ id, onChange, value, dataKey, placeholder, labelName, type = "text" }) {
-	const isTextarea = type === "textarea"
-
-	return isTextarea ? (
+	type === "textarea" ? (
 		<textarea
 			name={id}
 			id={id}

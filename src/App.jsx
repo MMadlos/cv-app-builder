@@ -75,10 +75,6 @@ function App() {
 	function handeAddExperience() {
 		setExperienceEditing(true)
 		setExperienceToEdit(emptyExperience)
-
-		// Crear state si es edit o si es new
-		// If edit -> Modificar
-		// If new -> Añadir
 	}
 
 	return (

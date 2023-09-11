@@ -1,5 +1,6 @@
 import FormInput from "./Units/FormInput"
 import TitleSection from "./Units/TitleSection"
+import Button from "./Units/Buttons"
 
 function EditPersonalDetails({ onClickReturn, dataToEdit, onChange, onClickSave }) {
 	const { fullName, location, email, linkedin } = dataToEdit
@@ -45,11 +46,11 @@ function EditPersonalDetails({ onClickReturn, dataToEdit, onChange, onClickSave 
 				/>
 			</div>
 
-			<button
+			<Button
+				type="save"
 				id="save-info"
-				onClick={onClickSave}>
-				Guardar
-			</button>
+				onClick={onClickSave}
+			/>
 		</section>
 	)
 }
