@@ -2,13 +2,13 @@ import FormInput from "../Units/FormInput"
 import TitleSection from "../Units/TitleSection"
 import Button from "../Units/Buttons"
 
-function EditExperience({ editExperience, onChange, onClickSaveExp, onClickReturn }) {
+function EditExperience({ editExperience, onChange, onClickSaveExp, onClickReturn, onClickDelete, isEdit, showDeleteBtn }) {
 	const { companyName, position, currentPosition, startDate, endDate, description } = editExperience
 
 	return (
 		<section className="edit experience">
 			<TitleSection
-				isEdit={true}
+				isEdit={isEdit}
 				sectionName="experience"
 				onClickReturn={onClickReturn}
 			/>
@@ -47,11 +47,13 @@ function EditExperience({ editExperience, onChange, onClickSaveExp, onClickRetur
 					labelName="End date"
 					value={endDate}
 					onChange={onChange}
+					disabled={currentPosition}
 				/>
 
 				<FormInput
 					type="textarea"
 					id="description"
+					labelName="Description"
 					value={description}
 					onChange={onChange}
 				/>
@@ -63,7 +65,12 @@ function EditExperience({ editExperience, onChange, onClickSaveExp, onClickRetur
 					id="save-info"
 					onClick={onClickSaveExp}
 				/>
-				<Button type="delete" />
+				{showDeleteBtn && (
+					<Button
+						type="delete"
+						onClick={onClickDelete}
+					/>
+				)}
 			</div>
 		</section>
 	)

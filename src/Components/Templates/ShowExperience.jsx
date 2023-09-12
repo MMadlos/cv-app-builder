@@ -1,10 +1,11 @@
 import CardExperience from "../Units/CardExperience"
 import TitleSection from "../Units/TitleSection"
 
-function ShowExperience({ experienceData, onClickEdit, onClickAddExp }) {
+function ShowExperience({ experienceData, onClickEdit, onClickAddExp, isEdit }) {
 	return (
 		<section className="experience">
 			<TitleSection
+				isEdit={isEdit}
 				sectionName="experience"
 				onClickAdd={onClickAddExp}
 			/>

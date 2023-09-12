@@ -18,7 +18,7 @@ function getTitle(titleList, sectionName, isEdit) {
 	return titleList[sectionName].isEdit[isEdit]
 }
 
-function TitleSection({ isEdit = false, sectionName, onClickReturn, onClickAdd }) {
+function TitleSection({ isEdit, sectionName, onClickReturn, onClickAdd }) {
 	const title = getTitle(titles, sectionName, isEdit)
 
 	if (isEdit) {

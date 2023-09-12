@@ -7,17 +7,21 @@ function Experience() {
 	const [experienceInfo, setExperienceInfo] = useState(exampleExperienceInfo)
 	const [experienceToEdit, setExperienceToEdit] = useState(emptyExperience)
 	const [experienceID, setExperienceID] = useState(0)
-	const [isExpEditing, setExperienceEditing] = useState(false)
+	const [showForm, setShowForm] = useState(false)
+	const [isEditForm, setIsEditForm] = useState(false)
+	const [showDeleteBtn, setShowDeleteBtn] = useState(false)
 
-	function handleEditExperience(e) {
+	function handleOnClickEdit(e) {
 		const { key } = e.target.parentNode.dataset
 
 		setExperienceToEdit(experienceInfo[key])
 		setExperienceID(parseInt(key))
-		setExperienceEditing(true)
+		setShowForm(true)
+		setIsEditForm(true)
+		setShowDeleteBtn(true)
 	}
 
-	function handleExperience(e) {
+	function handleOnChangeEdit(e) {
 		const { key } = e.target.dataset
 		const isCheckBox = e.target.type === "checkbox"
 		const isTextArea = e.target === "textarea"
@@ -27,50 +31,53 @@ function Experience() {
 		setExperienceToEdit({ ...experienceToEdit, [key]: value })
 	}
 
-	function handleSaveExp() {
+	function handleOnClickSave() {
 		const newExperience = []
 		experienceInfo.forEach((experience, index) => {
-			if (index === experienceID) {
-				newExperience.push(experienceToEdit)
-			} else {
-				newExperience.push(experience)
-			}
+			const isSameID = index === experienceID
+			newExperience[index] = isSameID ? experienceToEdit : experience
 		})
 
 		setExperienceInfo(newExperience)
-		setExperienceEditing(false)
+		setShowForm(false)
+		setIsEditForm(false)
 	}
 
-	function toggleEditInfo(e) {
-		const { editSection } = e.target.parentNode.dataset
-		if (editSection === "experience") setExperienceEditing(false)
+	function handleOnClickReturn() {
+		setShowForm(false)
+		setIsEditForm(false)
 	}
 
-	function handeAddExperience() {
-		setExperienceEditing(true)
+	function handleOnClickAdd() {
+		setIsEditForm(true)
+		setShowForm(true)
 		setExperienceToEdit(emptyExperience)
+		setShowDeleteBtn(false)
 
 		// Crear state si es edit o si es new
 		// If edit -> Modificar
 		// If new -> Añadir
 	}
 
-	if (isExpEditing) {
+	if (showForm) {
 		return (
 			<EditExperience
+				isEdit={isEditForm}
 				editExperience={experienceToEdit}
-				onChange={handleExperience}
-				onClickSaveExp={handleSaveExp}
-				onClickReturn={toggleEditInfo}
+				onChange={handleOnChangeEdit}
+				onClickSaveExp={handleOnClickSave}
+				onClickReturn={handleOnClickReturn}
+				showDeleteBtn={showDeleteBtn}
 			/>
 		)
 	}
 
 	return (
 		<ShowExperience
+			isEdit={isEditForm}
 			experienceData={experienceInfo}
-			onClickEdit={handleEditExperience}
-			onClickAddExp={handeAddExperience}
+			onClickEdit={handleOnClickEdit}
+			onClickAddExp={handleOnClickAdd}
 		/>
 	)
 }
