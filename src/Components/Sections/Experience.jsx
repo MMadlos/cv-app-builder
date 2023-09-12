@@ -33,7 +33,6 @@ function Experience() {
 
 	function handleOnClickSave() {
 		let newExperience = []
-		// TODO -> Revisar cómo se añadiría si es una experiencia nueva
 
 		if (showDeleteBtn) {
 			experienceInfo.forEach((experience, index) => {

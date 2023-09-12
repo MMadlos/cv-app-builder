@@ -2,7 +2,10 @@ import CardExperience from "../Units/CardExperience"
 import TitleSection from "../Units/TitleSection"
 
 function ShowExperience({ experienceData, onClickEdit, onClickAddExp, isEdit }) {
-	// TODO -> Order the experience chronologically
+	const sortedExperience = experienceData.sort(function (a, b) {
+		return b.startDate - a.startDate
+	})
+
 	return (
 		<section className="experience">
 			<TitleSection
@@ -12,7 +15,7 @@ function ShowExperience({ experienceData, onClickEdit, onClickAddExp, isEdit }) 
 			/>
 
 			<div className="cards-container">
-				{experienceData.map((experience) => {
+				{sortedExperience.map((experience) => {
 					return (
 						<CardExperience
 							key={experience.id}
