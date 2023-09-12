@@ -27,7 +27,7 @@ const exampleExperienceInfo = [
 ]
 
 const emptyExperience = {
-	id: 1,
+	id: null,
 	companyName: "",
 	position: "",
 	currentPosition: false,

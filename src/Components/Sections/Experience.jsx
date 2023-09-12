@@ -32,11 +32,18 @@ function Experience() {
 	}
 
 	function handleOnClickSave() {
-		const newExperience = []
-		experienceInfo.forEach((experience, index) => {
-			const isSameID = index === experienceID
-			newExperience[index] = isSameID ? experienceToEdit : experience
-		})
+		let newExperience = []
+		// TODO -> Revisar cómo se añadiría si es una experiencia nueva
+
+		if (showDeleteBtn) {
+			experienceInfo.forEach((experience, index) => {
+				const isSameID = index === experienceID
+				newExperience[index] = isSameID ? experienceToEdit : experience
+			})
+		} else {
+			experienceToEdit.id = experienceInfo.length
+			newExperience = [...experienceInfo, experienceToEdit]
+		}
 
 		setExperienceInfo(newExperience)
 		setShowForm(false)
@@ -53,10 +60,6 @@ function Experience() {
 		setShowForm(true)
 		setExperienceToEdit(emptyExperience)
 		setShowDeleteBtn(false)
-
-		// Crear state si es edit o si es new
-		// If edit -> Modificar
-		// If new -> Añadir
 	}
 
 	if (showForm) {
