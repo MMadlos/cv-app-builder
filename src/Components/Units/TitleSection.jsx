@@ -14,7 +14,7 @@ const titles = {
 	},
 	education: {
 		isEdit: {
-			true: "Editar experiencia",
+			true: "Editar educación",
 			false: "Educación",
 		},
 	},

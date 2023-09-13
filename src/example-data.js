@@ -45,4 +45,19 @@ const emptyExperience = {
 	description: "",
 }
 
-export { examplePersonalInfo, exampleExperienceInfo, emptyExperience }
+const exampleEducation = [
+	{
+		id: 0,
+		title: "Máster en UX/UI Design, Product Design",
+		center: "Nuclio School",
+		date: "2023",
+	},
+	{
+		id: 1,
+		title: "Administración y dirección de empresas",
+		center: "UAB",
+		date: "2019",
+	},
+]
+
+export { examplePersonalInfo, exampleExperienceInfo, emptyExperience, exampleEducation }

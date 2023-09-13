@@ -1,13 +1,10 @@
 import TitleSection from "../Units/TitleSection"
 import CardEducation from "../Units/CardEducation"
+import { exampleEducation } from "../../example-data"
 
 function ShowEducation() {
 	function onClickAdd() {}
-	const testData = {
-		title: "Titulo",
-		center: "Ejemplo",
-		date: "2023",
-	}
+
 	return (
 		<section className="education">
 			<TitleSection
@@ -17,16 +14,14 @@ function ShowEducation() {
 			/>
 
 			<div className="cards-container">
-				<CardEducation
-					dataKey={1}
-					educationData={testData}
-				/>
-			</div>
-			<div className="cards-container">
-				<CardEducation
-					dataKey={2}
-					educationData={testData}
-				/>
+				{exampleEducation.map((education) => {
+					return (
+						<CardEducation
+							key={education.id}
+							educationData={education}
+						/>
+					)
+				})}
 			</div>
 		</section>
 	)
