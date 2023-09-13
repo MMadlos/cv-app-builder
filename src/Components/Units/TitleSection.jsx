@@ -12,6 +12,12 @@ const titles = {
 			true: "Editar información personal",
 		},
 	},
+	education: {
+		isEdit: {
+			true: "Editar experiencia",
+			false: "Educación",
+		},
+	},
 }
 
 function getTitle(titleList, sectionName, isEdit) {

@@ -2,9 +2,7 @@ import CardExperience from "../Units/CardExperience"
 import TitleSection from "../Units/TitleSection"
 
 function ShowExperience({ experienceData, onClickEdit, onClickAddExp, isEdit }) {
-	const sortedExperience = experienceData.sort(function (a, b) {
-		return b.startDate - a.startDate
-	})
+	const sortedExperience = experienceData.sort((a, b) => b.startDate - a.startDate)
 
 	return (
 		<section className="experience">

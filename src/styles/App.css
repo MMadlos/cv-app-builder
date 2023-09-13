@@ -85,12 +85,32 @@ section,
 	min-width: 400px;
 }
 
-/* PERSONAL DETAILS */
-section.personal-details {
-	overflow: hidden;
+section {
 	border: 1px solid var(--grey-border);
 	border-radius: 16px;
 	background-color: var(--white-bg);
+
+	&:not(.personal-details) {
+		padding: 32px;
+	}
+
+	.title-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 32px;
+
+		> button {
+			display: flex;
+			gap: 8px;
+			align-items: center;
+		}
+	}
+}
+
+/* PERSONAL DETAILS */
+section.personal-details {
+	overflow: hidden;
 
 	.personal-details-background {
 		height: 120px;
@@ -277,11 +297,6 @@ section.personal-details {
 /* EXPERIENCE SECTION */
 
 section.experience {
-	border: 1px solid var(--grey-border);
-	border-radius: 16px;
-	background-color: var(--white-bg);
-	padding: 32px;
-
 	.title-container {
 		display: flex;
 		justify-content: space-between;
@@ -346,6 +361,35 @@ section.experience {
 			> p {
 				line-height: 150%;
 				white-space: pre-line;
+			}
+		}
+	}
+}
+
+/* EDUCATION SECTION */
+section.education {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+
+	.cards-container {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+
+		.card-education {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+
+			.card-title-container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.education-container > p {
+				color: var(--grey-icon);
 			}
 		}
 	}
