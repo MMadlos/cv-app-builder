@@ -48,16 +48,25 @@ const emptyExperience = {
 const exampleEducation = [
 	{
 		id: 0,
-		title: "Máster en UX/UI Design, Product Design",
-		center: "Nuclio School",
-		date: "2023",
-	},
-	{
-		id: 1,
 		title: "Administración y dirección de empresas",
 		center: "UAB",
 		date: "2019",
 	},
+	{
+		id: 1,
+		title: "Máster en UX/UI Design, Product Design",
+		center: "Nuclio School",
+		date: "2023",
+	},
 ]
 
-export { examplePersonalInfo, exampleExperienceInfo, emptyExperience, exampleEducation }
+const emptyEducation = [
+	{
+		id: 0,
+		title: "Title of education",
+		center: "Center of education",
+		date: "2023",
+	},
+]
+
+export { examplePersonalInfo, exampleExperienceInfo, emptyExperience, exampleEducation, emptyEducation }

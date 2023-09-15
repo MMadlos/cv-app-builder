@@ -27,7 +27,7 @@ function EditEducation({ onClickReturn, dataToEdit, onChange, onClickSave, onCli
 				/>
 				<FormInput
 					id="date-education"
-					labelName="Certified date"
+					labelName="Date"
 					value={date}
 					onChange={onChange}
 				/>

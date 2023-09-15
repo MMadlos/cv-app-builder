@@ -1,9 +1,8 @@
 import TitleSection from "../Units/TitleSection"
 import CardEducation from "../Units/CardEducation"
-import { exampleEducation } from "../../example-data"
 
-function ShowEducation() {
-	function onClickAdd() {}
+function ShowEducation({ educationData, onClickAdd, onClickEdit }) {
+	const sortedEducation = educationData.sort((a, b) => b.date - a.date)
 
 	return (
 		<section className="education">
@@ -14,11 +13,12 @@ function ShowEducation() {
 			/>
 
 			<div className="cards-container">
-				{exampleEducation.map((education) => {
+				{sortedEducation.map((education) => {
 					return (
 						<CardEducation
 							key={education.id}
 							educationData={education}
+							onClick={onClickEdit}
 						/>
 					)
 				})}
