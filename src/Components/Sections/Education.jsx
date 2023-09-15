@@ -56,10 +56,17 @@ function Education() {
 
 		setEducationData(newEducation)
 		setShowForm(false)
-		setIsEdit(false)
 	}
 
-	function handleOnClickDelete() {}
+	function handleOnClickDelete() {
+		let newEducation = []
+
+		educationData.forEach((education) => {
+			if (education.id !== educationID) newEducation.push(education)
+		})
+		setEducationData(newEducation)
+		setShowForm(false)
+	}
 
 	function handleOnChange(e) {
 		const { key } = e.target.dataset

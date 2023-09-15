@@ -9,7 +9,13 @@ function Button({ type, id, onClick, datasetEditSection }) {
 		)
 	}
 	if (type === "delete") {
-		return <button className="delete-experience">Eliminar </button>
+		return (
+			<button
+				className="delete-experience"
+				onClick={onClick}>
+				Eliminar
+			</button>
+		)
 	}
 	if (type === "add") {
 		return <button onClick={onClick}>Añadir</button>
