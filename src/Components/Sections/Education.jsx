@@ -59,6 +59,9 @@ function Education() {
 	}
 
 	function handleOnClickDelete() {
+		const confirmation = window.confirm("If you delete it, you won't be able to recover it.")
+		if (!confirmation) return
+
 		let newEducation = []
 
 		educationData.forEach((education) => {
