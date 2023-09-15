@@ -60,13 +60,11 @@ const exampleEducation = [
 	},
 ]
 
-const emptyEducation = [
-	{
-		id: 0,
-		title: "Title of education",
-		center: "Center of education",
-		date: "2023",
-	},
-]
+const emptyEducation = {
+	id: null,
+	title: "",
+	center: "",
+	date: "",
+}
 
 export { examplePersonalInfo, exampleExperienceInfo, emptyExperience, exampleEducation, emptyEducation }

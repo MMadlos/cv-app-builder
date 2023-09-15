@@ -19,6 +19,7 @@ function ShowEducation({ educationData, onClickAdd, onClickEdit }) {
 							key={education.id}
 							educationData={education}
 							onClick={onClickEdit}
+							dataKey={education.id}
 						/>
 					)
 				})}
