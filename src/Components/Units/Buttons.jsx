@@ -1,5 +1,5 @@
 function Button({ type, id, onClick, datasetEditSection }) {
-	if (type === "save") {
+	if (type === "edit") {
 		return (
 			<button
 				id={id}

@@ -2,11 +2,12 @@ import TitleSection from "../Units/TitleSection"
 import FormInput from "../Units/FormInput"
 import Button from "../Units/Buttons"
 
-function EditEducation({ dataToEdit, onChange, onClickReturn, onClickSave, onClickDelete, isEdit, showDeleteBtn }) {
+function EditEducation({ titleType, dataToEdit, onChange, onClickReturn, onClickSave, onClickDelete, isEdit, showDeleteBtn }) {
 	const { title, center, date } = dataToEdit
 	return (
 		<section className="edit experience">
 			<TitleSection
+				titleType={titleType}
 				isEdit={isEdit}
 				sectionName="education"
 				onClickReturn={onClickReturn}
@@ -35,7 +36,7 @@ function EditEducation({ dataToEdit, onChange, onClickReturn, onClickSave, onCli
 
 			<div className="btn-container">
 				<Button
-					type="save"
+					type={titleType}
 					id="save-info"
 					onClick={onClickSave}
 				/>

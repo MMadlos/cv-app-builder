@@ -29,6 +29,7 @@ function PersonalDetails() {
 	if (isInfoEditing) {
 		return (
 			<EditPersonalDetails
+				titleType="edit"
 				onClickReturn={toggleEditInfo}
 				dataToEdit={editedInfo}
 				onChange={handleInfo}
@@ -38,6 +39,7 @@ function PersonalDetails() {
 	}
 	return (
 		<ShowPersonalDetails
+			titleType="show"
 			personalInfo={personalInfo}
 			onClick={toggleEditInfo}
 		/>

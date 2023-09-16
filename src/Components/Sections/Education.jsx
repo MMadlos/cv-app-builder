@@ -11,6 +11,7 @@ function Education() {
 	const [dataToEdit, setDataToEdit] = useState(emptyEducation)
 	const [isEdit, setIsEdit] = useState(false)
 	const [showDeleteBtn, setShowDeleteBtn] = useState(false)
+	const [titleType, setTitleType] = useState("")
 
 	function handleOnClickEdit(e) {
 		const { key } = e.target.parentNode.parentNode.dataset
@@ -19,6 +20,7 @@ function Education() {
 		setShowForm(true)
 		setIsEdit(true)
 		setShowDeleteBtn(true)
+		setTitleType("edit")
 
 		educationData.map((education) => {
 			if (education.id === newEducationID) {
@@ -36,6 +38,7 @@ function Education() {
 		setShowForm(true)
 		setDataToEdit(emptyEducation)
 		setShowDeleteBtn(false)
+		setTitleType("add")
 	}
 
 	function handleOnClickSave() {
@@ -82,6 +85,7 @@ function Education() {
 		<>
 			{showForm ? (
 				<EditEducation
+					titleType={titleType}
 					dataToEdit={dataToEdit}
 					onChange={handleOnChange}
 					onClickReturn={handleOnClickReturn}
@@ -92,6 +96,7 @@ function Education() {
 				/>
 			) : (
 				<ShowEducation
+					titleType={"show"}
 					educationData={educationData}
 					onClickAdd={handleOnClickAdd}
 					onClickEdit={handleOnClickEdit}

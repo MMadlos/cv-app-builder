@@ -2,12 +2,13 @@ import FormInput from "../Units/FormInput"
 import TitleSection from "../Units/TitleSection"
 import Button from "../Units/Buttons"
 
-function EditPersonalDetails({ onClickReturn, dataToEdit, onChange, onClickSave }) {
+function EditPersonalDetails({ titleType, onClickReturn, dataToEdit, onChange, onClickSave }) {
 	const { fullName, location, email, linkedin } = dataToEdit
 
 	return (
 		<section className="edit-info edit">
 			<TitleSection
+				titleType={titleType}
 				isEdit={true}
 				onClickReturn={onClickReturn}
 				sectionName="personal"
@@ -47,7 +48,7 @@ function EditPersonalDetails({ onClickReturn, dataToEdit, onChange, onClickSave 
 			</div>
 
 			<Button
-				type="save"
+				type={titleType}
 				id="save-info"
 				onClick={onClickSave}
 			/>

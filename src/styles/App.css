@@ -71,6 +71,19 @@ i {
 	color: var(--black-text);
 }
 
+i.fa-pencil {
+	color: var(--main-color);
+	opacity: 70%;
+	padding: 12px;
+	border-radius: 100%;
+
+	&:hover {
+		opacity: 100%;
+		cursor: pointer;
+		background-color: var(--grey-bg);
+	}
+}
+
 main {
 	display: flex;
 	flex-direction: column;
@@ -380,7 +393,6 @@ section.education {
 		.card-education {
 			display: flex;
 			flex-direction: column;
-			gap: 4px;
 
 			.card-title-container {
 				display: flex;

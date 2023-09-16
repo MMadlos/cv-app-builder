@@ -2,32 +2,28 @@ import Button from "./Buttons"
 
 const titles = {
 	experience: {
-		isEdit: {
-			true: "Editar experiencia",
-			false: "Experiencia",
-		},
+		edit: "Editar experiencia",
+		add: "Añadir experiencia",
+		show: "Experiencia",
 	},
 	personal: {
-		isEdit: {
-			true: "Editar información personal",
-		},
+		edit: "Editar información",
 	},
 	education: {
-		isEdit: {
-			true: "Editar educación",
-			false: "Educación",
-		},
+		edit: "Editar formación",
+		add: "Añadir formación",
+		show: "Formación",
 	},
 }
 
-function getTitle(titleList, sectionName, isEdit) {
-	return titleList[sectionName].isEdit[isEdit]
+function getTitle(titleList, sectionName, titleType) {
+	return titleList[sectionName][titleType]
 }
 
-function TitleSection({ isEdit, sectionName, onClickReturn, onClickAdd }) {
-	const title = getTitle(titles, sectionName, isEdit)
+function TitleSection({ titleType, sectionName, onClickReturn, onClickAdd }) {
+	const title = getTitle(titles, sectionName, titleType)
 
-	if (isEdit) {
+	if (titleType === "edit" || titleType === "add") {
 		return (
 			<div className="title">
 				<Button

@@ -1,12 +1,13 @@
 import TitleSection from "../Units/TitleSection"
 import CardEducation from "../Units/CardEducation"
 
-function ShowEducation({ educationData, onClickAdd, onClickEdit }) {
+function ShowEducation({ titleType, educationData, onClickAdd, onClickEdit }) {
 	const sortedEducation = educationData.sort((a, b) => b.date - a.date)
 
 	return (
 		<section className="education">
 			<TitleSection
+				titleType={titleType}
 				isEdit={false}
 				sectionName="education"
 				onClickAdd={onClickAdd}

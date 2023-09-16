@@ -10,6 +10,7 @@ function Experience() {
 	const [showForm, setShowForm] = useState(false)
 	const [isEditForm, setIsEditForm] = useState(false)
 	const [showDeleteBtn, setShowDeleteBtn] = useState(false)
+	const [titleType, setTitleType] = useState("")
 
 	function handleOnClickEdit(e) {
 		const { key } = e.target.parentNode.dataset
@@ -19,6 +20,7 @@ function Experience() {
 		setShowForm(true)
 		setIsEditForm(true)
 		setShowDeleteBtn(true)
+		setTitleType("edit")
 	}
 
 	function handleOnChangeEdit(e) {
@@ -59,11 +61,13 @@ function Experience() {
 		setShowForm(true)
 		setExperienceToEdit(emptyExperience)
 		setShowDeleteBtn(false)
+		setTitleType("add")
 	}
 
 	if (showForm) {
 		return (
 			<EditExperience
+				titleType={titleType}
 				isEdit={isEditForm}
 				editExperience={experienceToEdit}
 				onChange={handleOnChangeEdit}
@@ -76,6 +80,7 @@ function Experience() {
 
 	return (
 		<ShowExperience
+			titleType={"show"}
 			isEdit={isEditForm}
 			experienceData={experienceInfo}
 			onClickEdit={handleOnClickEdit}

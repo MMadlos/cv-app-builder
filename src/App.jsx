@@ -10,8 +10,8 @@ import Education from "./Components/Sections/Education"
 function App() {
 	return (
 		<main>
-			{/* <PersonalDetails /> */}
-			{/* <Experience /> */}
+			<PersonalDetails />
+			<Experience />
 			<Education />
 		</main>
 	)

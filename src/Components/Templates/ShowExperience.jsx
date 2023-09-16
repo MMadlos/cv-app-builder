@@ -1,12 +1,13 @@
 import CardExperience from "../Units/CardExperience"
 import TitleSection from "../Units/TitleSection"
 
-function ShowExperience({ experienceData, onClickEdit, onClickAddExp, isEdit }) {
+function ShowExperience({ titleType, experienceData, onClickEdit, onClickAddExp, isEdit }) {
 	const sortedExperience = experienceData.sort((a, b) => b.startDate - a.startDate)
 
 	return (
 		<section className="experience">
 			<TitleSection
+				titleType={titleType}
 				isEdit={isEdit}
 				sectionName="experience"
 				onClickAdd={onClickAddExp}
