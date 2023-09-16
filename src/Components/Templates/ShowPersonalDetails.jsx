@@ -1,9 +1,10 @@
 import { useState } from "react"
+import profilePicture from "../../../public/Agumon2006_DM.jpg"
 
 function ShowPersonalDetails({ personalInfo, onClick }) {
 	const { fullName, location, email, linkedin } = personalInfo
 
-	const [imageProfile, setImageProfile] = useState(undefined)
+	const [imageProfile, setImageProfile] = useState(profilePicture)
 
 	function handleOnClickPicture() {
 		const upload = document.getElementById("upload-picture")

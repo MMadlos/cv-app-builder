@@ -142,9 +142,9 @@ section.personal-details {
 			position: absolute;
 			height: 120px;
 			aspect-ratio: 1 / 1;
-			border: 2px var(--white-bg) solid;
+			border: 4px var(--white-bg) solid;
 			border-radius: 100%;
-			background-color: var(--grey-border);
+			background-color: var(--grey-bg);
 			transform: translate(0, -100%);
 
 			background-position: center;
@@ -162,8 +162,9 @@ section.personal-details {
 
 		.picture:hover {
 			cursor: pointer;
-			border: 3px solid var(--main-color);
-			opacity: 60%;
+			background-image: none !important;
+			background-color: var(--grey-bg);
+
 			> i {
 				opacity: 100%;
 				cursor: pointer;
