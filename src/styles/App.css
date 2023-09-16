@@ -23,6 +23,10 @@
 
 /* UTILITIES */
 
+.hidden {
+	display: none !important;
+}
+
 button:not(.not-button) {
 	border: none;
 	background: var(--main-color);
@@ -140,8 +144,31 @@ section.personal-details {
 			aspect-ratio: 1 / 1;
 			border: 2px var(--white-bg) solid;
 			border-radius: 100%;
-			background-color: var(--grey-bg);
+			background-color: var(--grey-border);
 			transform: translate(0, -100%);
+
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			> i {
+				opacity: 0%;
+			}
+		}
+
+		.picture:hover {
+			cursor: pointer;
+			border: 3px solid var(--main-color);
+			opacity: 60%;
+			> i {
+				opacity: 100%;
+				cursor: pointer;
+				background-color: var(--grey-bg);
+			}
 		}
 
 		.name {
