@@ -383,7 +383,6 @@ section.experience {
 section.education {
 	display: flex;
 	flex-direction: column;
-	gap: 32px;
 
 	.cards-container {
 		display: flex;
