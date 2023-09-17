@@ -19,7 +19,22 @@ function ShowPersonalDetails({ personalInfo, onClick }) {
 		<section className="personal-details">
 			<div className="personal-details-background"></div>
 			<div className="personal-data">
-				<div
+				<div className="avatar-container">
+					<img
+						className="picture"
+						src={imageProfile}
+						alt="Image profile"
+						onClick={handleOnClickPicture}
+					/>
+					<i className="fa-solid fa-pencil"></i>
+					<input
+						type="file"
+						id="upload-picture"
+						className="hidden"
+						accept=".png, .jpg, .jpeg"
+					/>
+				</div>
+				{/* <div
 					className="picture"
 					onClick={handleOnClickPicture}
 					style={{ backgroundImage: `url(${imageProfile})` }}>
@@ -30,7 +45,7 @@ function ShowPersonalDetails({ personalInfo, onClick }) {
 						className="hidden"
 						accept=".png, .jpg, .jpeg"
 					/>
-				</div>
+				</div> */}
 				<div className="name">
 					<h1>{fullName ? fullName : "My name"}</h1>
 					<i
