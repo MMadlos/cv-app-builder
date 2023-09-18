@@ -95,6 +95,7 @@ main {
 }
 
 section,
+aside,
 .edit {
 	margin: 0 auto;
 	width: 100%;
@@ -138,7 +139,8 @@ section.personal-details {
 		position: relative;
 		padding: 32px;
 
-		.picture {
+		.avatar-container {
+			overflow: hidden;
 			position: absolute;
 			height: 120px;
 			aspect-ratio: 1 / 1;
@@ -147,23 +149,28 @@ section.personal-details {
 			background-color: var(--grey-bg);
 			transform: translate(0, -100%);
 
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			> img {
+				border-radius: 100%;
+				background-color: var(--white-bg);
+				object-fit: cover;
+			}
 
 			> i {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
 				opacity: 0%;
 			}
 		}
 
-		.picture:hover {
+		.avatar-container:hover {
 			cursor: pointer;
-			background-image: none !important;
-			background-color: var(--grey-bg);
+			background: var(--grey-bg);
+
+			> img {
+				opacity: 0.2;
+			}
 
 			> i {
 				opacity: 100%;
@@ -431,5 +438,28 @@ section.education {
 				color: var(--grey-icon);
 			}
 		}
+	}
+}
+
+/*  ASIDE */
+aside {
+	display: flex;
+	justify-content: space-between;
+
+	#print {
+		> i {
+			color: var(--white-bg);
+			margin-right: 12px;
+		}
+	}
+
+	#reset-data {
+		background: none;
+		color: var(--red-alert);
+		padding-left: 0;
+		padding-right: 0;
+		text-decoration: underline;
+		text-underline-offset: 4px;
+		font-weight: 600;
 	}
 }

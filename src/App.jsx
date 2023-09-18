@@ -11,13 +11,22 @@ function App() {
 	function handleOnClickPrint() {
 		window.print()
 	}
+
+	function handleOnClickResetData() {}
+
 	return (
 		<main>
 			<aside>
 				<button
 					id="print"
 					onClick={handleOnClickPrint}>
-					<i className="fa-solid fa-print"></i>
+					<i className="fa-solid fa-print" />
+					Preview / Print
+				</button>
+				<button
+					id="reset-data"
+					onClick={handleOnClickResetData}>
+					Reset data
 				</button>
 			</aside>
 			<PersonalDetails />

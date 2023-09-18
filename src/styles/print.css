@@ -3,4 +3,8 @@
 	i.fa-pencil {
 		display: none !important;
 	}
+
+	.personal-details-background {
+		print-color-adjust: exact;
+	}
 }

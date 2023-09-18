@@ -34,18 +34,6 @@ function ShowPersonalDetails({ personalInfo, onClick }) {
 						accept=".png, .jpg, .jpeg"
 					/>
 				</div>
-				{/* <div
-					className="picture"
-					onClick={handleOnClickPicture}
-					style={{ backgroundImage: `url(${imageProfile})` }}>
-					<i className="fa-solid fa-pencil"></i>
-					<input
-						type="file"
-						id="upload-picture"
-						className="hidden"
-						accept=".png, .jpg, .jpeg"
-					/>
-				</div> */}
 				<div className="name">
 					<h1>{fullName ? fullName : "My name"}</h1>
 					<i
