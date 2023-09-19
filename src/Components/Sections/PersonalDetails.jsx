@@ -3,12 +3,12 @@ import { useState } from "react"
 import EditPersonalDetails from "../Templates/EditPersonalDetails"
 import ShowPersonalDetails from "../Templates/ShowPersonalDetails"
 
-import { examplePersonalInfo } from "../../example-data"
+function PersonalDetails({ data }) {
+	const defaultPersonalInfo = data
 
-function PersonalDetails() {
 	const [isInfoEditing, setInfoEditing] = useState(false)
-	const [personalInfo, setPersonalInfo] = useState(examplePersonalInfo)
-	const [editedInfo, setEditedInfo] = useState(examplePersonalInfo)
+	const [personalInfo, setPersonalInfo] = useState(defaultPersonalInfo)
+	const [editedInfo, setEditedInfo] = useState(defaultPersonalInfo)
 
 	function toggleEditInfo() {
 		setInfoEditing(!isInfoEditing)

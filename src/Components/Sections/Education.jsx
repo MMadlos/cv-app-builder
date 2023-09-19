@@ -1,10 +1,11 @@
 import ShowEducation from "../Templates/ShowEducation"
 import EditEducation from "../Templates/EditEducation"
 
-import { exampleEducation, emptyEducation } from "../../example-data"
+import { emptyEducation } from "../../example-data"
 import { useState } from "react"
 
-function Education() {
+function Education({ data }) {
+	const exampleEducation = data
 	const [showForm, setShowForm] = useState(false)
 	const [educationData, setEducationData] = useState(exampleEducation)
 	const [educationID, setEducationID] = useState(0)

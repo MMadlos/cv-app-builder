@@ -1,9 +1,11 @@
 import { useState } from "react"
-import { exampleExperienceInfo, emptyExperience } from "../../example-data"
+import { emptyExperience } from "../../example-data"
 import ShowExperience from "../Templates/ShowExperience"
 import EditExperience from "../Templates/EditExperience"
 
-function Experience() {
+function Experience({ data }) {
+	const exampleExperienceInfo = data
+
 	const [experienceInfo, setExperienceInfo] = useState(exampleExperienceInfo)
 	const [experienceToEdit, setExperienceToEdit] = useState(emptyExperience)
 	const [experienceID, setExperienceID] = useState(0)
@@ -64,21 +66,30 @@ function Experience() {
 		setTitleType("add")
 	}
 
-	if (showForm) {
-		return (
-			<EditExperience
-				titleType={titleType}
-				isEdit={isEditForm}
-				editExperience={experienceToEdit}
-				onChange={handleOnChangeEdit}
-				onClickSaveExp={handleOnClickSave}
-				onClickReturn={handleOnClickReturn}
-				showDeleteBtn={showDeleteBtn}
-			/>
-		)
+	function handleOnClickDelete() {
+		const confirmation = window.confirm("Are you sure?")
+		if (!confirmation) return
+
+		let newExperience = []
+		experienceInfo.forEach((experience) => {
+			if (experience.id !== experienceID) newExperience.push(experience)
+		})
+		setExperienceInfo(newExperience)
+		setShowForm(false)
 	}
 
-	return (
+	return showForm ? (
+		<EditExperience
+			titleType={titleType}
+			isEdit={isEditForm}
+			editExperience={experienceToEdit}
+			onChange={handleOnChangeEdit}
+			onClickSaveExp={handleOnClickSave}
+			onClickReturn={handleOnClickReturn}
+			showDeleteBtn={showDeleteBtn}
+			onClickDelete={handleOnClickDelete}
+		/>
+	) : (
 		<ShowExperience
 			titleType={"show"}
 			isEdit={isEditForm}
