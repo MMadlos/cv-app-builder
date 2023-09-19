@@ -1,18 +1,16 @@
 import { useState } from "react"
 
+import { examplePersonalInfo } from "../../example-data"
+
 import EditPersonalDetails from "../Templates/EditPersonalDetails"
 import ShowPersonalDetails from "../Templates/ShowPersonalDetails"
 
-function PersonalDetails({ data }) {
-	const defaultPersonalInfo = data
-
+function PersonalDetails() {
+	const [personalInfo, setPersonalInfo] = useState(examplePersonalInfo)
+	const [editedInfo, setEditedInfo] = useState(examplePersonalInfo)
 	const [isInfoEditing, setInfoEditing] = useState(false)
-	const [personalInfo, setPersonalInfo] = useState(defaultPersonalInfo)
-	const [editedInfo, setEditedInfo] = useState(defaultPersonalInfo)
 
-	function toggleEditInfo() {
-		setInfoEditing(!isInfoEditing)
-	}
+	const toggleEditInfo = () => setInfoEditing(!isInfoEditing)
 
 	function handleInfo(e) {
 		const { key } = e.target.dataset
@@ -20,24 +18,19 @@ function PersonalDetails({ data }) {
 	}
 
 	function handleSaveInfo() {
-		const newInfo = editedInfo
-
-		setPersonalInfo(newInfo)
+		setPersonalInfo(editedInfo)
 		setInfoEditing(false)
 	}
 
-	if (isInfoEditing) {
-		return (
-			<EditPersonalDetails
-				titleType="edit"
-				onClickReturn={toggleEditInfo}
-				dataToEdit={editedInfo}
-				onChange={handleInfo}
-				onClickSave={handleSaveInfo}
-			/>
-		)
-	}
-	return (
+	return isInfoEditing ? (
+		<EditPersonalDetails
+			titleType="edit"
+			onClickReturn={toggleEditInfo}
+			dataToEdit={editedInfo}
+			onChange={handleInfo}
+			onClickSave={handleSaveInfo}
+		/>
+	) : (
 		<ShowPersonalDetails
 			titleType="show"
 			personalInfo={personalInfo}

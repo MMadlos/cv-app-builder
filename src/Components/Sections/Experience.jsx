@@ -1,11 +1,9 @@
 import { useState } from "react"
-import { emptyExperience } from "../../example-data"
+import { exampleExperienceInfo, emptyExperience } from "../../example-data"
 import ShowExperience from "../Templates/ShowExperience"
 import EditExperience from "../Templates/EditExperience"
 
-function Experience({ data }) {
-	const exampleExperienceInfo = data
-
+function Experience() {
 	const [experienceInfo, setExperienceInfo] = useState(exampleExperienceInfo)
 	const [experienceToEdit, setExperienceToEdit] = useState(emptyExperience)
 	const [experienceID, setExperienceID] = useState(0)
@@ -16,13 +14,16 @@ function Experience({ data }) {
 
 	function handleOnClickEdit(e) {
 		const { key } = e.target.parentNode.dataset
-
-		setExperienceToEdit(experienceInfo[key])
-		setExperienceID(parseInt(key))
+		const ID = parseInt(key)
+		setExperienceID(ID)
 		setShowForm(true)
 		setIsEditForm(true)
 		setShowDeleteBtn(true)
 		setTitleType("edit")
+
+		experienceInfo.map((experience) => {
+			if (experience.id === ID) return setExperienceToEdit(experience)
+		})
 	}
 
 	function handleOnChangeEdit(e) {

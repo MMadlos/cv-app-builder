@@ -1,11 +1,11 @@
+import { useState } from "react"
+
+import { exampleEducation, emptyEducation } from "../../example-data"
+
 import ShowEducation from "../Templates/ShowEducation"
 import EditEducation from "../Templates/EditEducation"
 
-import { emptyEducation } from "../../example-data"
-import { useState } from "react"
-
-function Education({ data }) {
-	const exampleEducation = data
+function Education() {
 	const [showForm, setShowForm] = useState(false)
 	const [educationData, setEducationData] = useState(exampleEducation)
 	const [educationID, setEducationID] = useState(0)
@@ -16,17 +16,15 @@ function Education({ data }) {
 
 	function handleOnClickEdit(e) {
 		const { key } = e.target.parentNode.parentNode.dataset
-		const newEducationID = parseInt(key)
-		setEducationID(newEducationID)
+		const ID = parseInt(key)
+		setEducationID(ID)
 		setShowForm(true)
 		setIsEdit(true)
 		setShowDeleteBtn(true)
 		setTitleType("edit")
 
 		educationData.map((education) => {
-			if (education.id === newEducationID) {
-				return setDataToEdit(education)
-			}
+			if (education.id === ID) return setDataToEdit(education)
 		})
 	}
 
