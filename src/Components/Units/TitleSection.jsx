@@ -28,9 +28,7 @@ function TitleSection({ titleType, sectionName, onClickReturn, onClickAdd }) {
 			<div className="title">
 				<Button
 					type="return"
-					className="not-button"
 					onClick={onClickReturn}
-					datasetEditSection={sectionName}
 				/>
 				<h1>{title}</h1>
 			</div>

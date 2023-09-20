@@ -10,7 +10,6 @@ function Education() {
 	const [educationData, setEducationData] = useState(exampleEducation)
 	const [educationID, setEducationID] = useState(0)
 	const [dataToEdit, setDataToEdit] = useState(emptyEducation)
-	const [isEdit, setIsEdit] = useState(false)
 	const [showDeleteBtn, setShowDeleteBtn] = useState(false)
 	const [titleType, setTitleType] = useState("")
 
@@ -19,7 +18,6 @@ function Education() {
 		const ID = parseInt(key)
 		setEducationID(ID)
 		setShowForm(true)
-		setIsEdit(true)
 		setShowDeleteBtn(true)
 		setTitleType("edit")
 
@@ -30,10 +28,8 @@ function Education() {
 
 	function handleOnClickReturn() {
 		setShowForm(false)
-		setIsEdit(false)
 	}
 	function handleOnClickAdd() {
-		setIsEdit(true)
 		setShowForm(true)
 		setDataToEdit(emptyEducation)
 		setShowDeleteBtn(false)
@@ -80,6 +76,8 @@ function Education() {
 		setDataToEdit({ ...dataToEdit, [keyToSearch]: e.target.value })
 	}
 
+	const isEditType = titleType === "edit"
+
 	return (
 		<>
 			{showForm ? (
@@ -90,8 +88,7 @@ function Education() {
 					onClickReturn={handleOnClickReturn}
 					onClickSave={handleOnClickSave}
 					onClickDelete={handleOnClickDelete}
-					isEdit={isEdit}
-					showDeleteBtn={showDeleteBtn}
+					showDeleteBtn={isEditType}
 				/>
 			) : (
 				<ShowEducation

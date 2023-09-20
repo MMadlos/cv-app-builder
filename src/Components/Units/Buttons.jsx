@@ -1,4 +1,4 @@
-function Button({ type, id, onClick, datasetEditSection }) {
+function Button({ type, id, onClick }) {
 	if (type === "edit") {
 		return (
 			<button
@@ -11,6 +11,7 @@ function Button({ type, id, onClick, datasetEditSection }) {
 	if (type === "delete") {
 		return (
 			<button
+				id={id}
 				className="delete-experience"
 				onClick={onClick}>
 				Eliminar
@@ -18,14 +19,20 @@ function Button({ type, id, onClick, datasetEditSection }) {
 		)
 	}
 	if (type === "add") {
-		return <button onClick={onClick}>Añadir</button>
+		return (
+			<button
+				id={id}
+				onClick={onClick}>
+				Añadir
+			</button>
+		)
 	}
 	if (type === "return") {
 		return (
 			<button
+				id={id}
 				className="not-button"
-				onClick={onClick}
-				data-edit-section={datasetEditSection}>
+				onClick={onClick}>
 				<i className="fa-solid fa-chevron-left"></i>
 			</button>
 		)
