@@ -1,6 +1,6 @@
 import Button from "./Buttons"
 
-const titles = {
+const titleList = {
 	experience: {
 		edit: "Editar experiencia",
 		add: "Añadir experiencia",
@@ -16,32 +16,25 @@ const titles = {
 	},
 }
 
-function getTitle(titleList, sectionName, titleType) {
-	return titleList[sectionName][titleType]
-}
-
 function TitleSection({ titleType, sectionName, onClickReturn, onClickAdd }) {
-	const title = getTitle(titles, sectionName, titleType)
+	const title = titleList[sectionName][titleType]
+	const isShowType = titleType === "show"
 
-	if (titleType === "edit" || titleType === "add") {
-		return (
-			<div className="title">
-				<Button
-					type="return"
-					onClick={onClickReturn}
-				/>
-				<h1>{title}</h1>
-			</div>
-		)
-	}
-
-	return (
+	return isShowType ? (
 		<div className="title-container">
 			<h2>{title}</h2>
 			<Button
 				type="add"
 				onClick={onClickAdd}
 			/>
+		</div>
+	) : (
+		<div className="title">
+			<Button
+				type="return"
+				onClick={onClickReturn}
+			/>
+			<h1>{title}</h1>
 		</div>
 	)
 }
