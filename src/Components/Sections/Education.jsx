@@ -5,7 +5,7 @@
 import ShowEducation from "../Templates/ShowEducation"
 import EditEducation from "../Templates/EditEducation"
 
-function Education({ data, isEdit, onClickAdd, onClickEdit, onClickReturn, onChange, titleType, showDeleteBtn }) {
+function Education({ data, isEdit, onClickAdd, onClickEdit, onClickReturn, onChange, onClickSave, titleType, showDeleteBtn }) {
 	// const [showForm, setShowForm] = useState(false)
 	// const [educationData, setEducationData] = useState(exampleEducation)
 	// const [educationID, setEducationID] = useState(0)
@@ -40,25 +40,27 @@ function Education({ data, isEdit, onClickAdd, onClickEdit, onClickReturn, onCha
 	// 	setTitleType("add")
 	// }
 
-	// function handleOnClickSave() {
-	// 	for (let key in dataToEdit) {
-	// 		if (dataToEdit[key] === "") return alert(`${key} is required"`)
-	// 	}
+	/*
+	function handleOnClickSave() {
+		for (let key in dataToEdit) {
+			if (dataToEdit[key] === "") return alert(`${key} is required"`)
+		}
 
-	// 	let newEducation = []
-	// 	if (showDeleteBtn) {
-	// 		educationData.forEach((education) => {
-	// 			const isSameID = education.id === educationID
-	// 			newEducation.push(isSameID ? dataToEdit : education)
-	// 		})
-	// 	} else {
-	// 		dataToEdit.id = educationData.length
-	// 		newEducation = [...educationData, dataToEdit]
-	// 	}
+		let newEducation = []
+		if (showDeleteBtn) {
+			educationData.forEach((education) => {
+				const isSameID = education.id === educationID
+				newEducation.push(isSameID ? dataToEdit : education)
+			})
+		} else {
+			dataToEdit.id = educationData.length
+			newEducation = [...educationData, dataToEdit]
+		}
 
-	// 	setEducationData(newEducation)
-	// 	setShowForm(false)
-	// }
+		setEducationData(newEducation)
+		setShowForm(false)
+	}
+	*/
 
 	// function handleOnClickDelete() {
 	// 	const confirmation = window.confirm("If you delete it, you won't be able to recover it.")
@@ -88,7 +90,7 @@ function Education({ data, isEdit, onClickAdd, onClickEdit, onClickReturn, onCha
 			dataToEdit={data}
 			onChange={onChange}
 			onClickReturn={onClickReturn}
-			// onClickSave={handleOnClickSave}
+			onClickSave={onClickSave}
 			// onClickDelete={handleOnClickDelete}
 			showDeleteBtn={showDeleteBtn}
 		/>

@@ -61,11 +61,34 @@ function App() {
 	}
 
 	function handleOnClickSave() {
+		// TODO -> Check for required elements
+		/*
+		for (let key in dataToEdit) {
+			if (dataToEdit[key] === "") return alert(`${key} is required"`)
+		}
+		*/
 		const currentData = {}
-		for (let section in exampleData) {
-			currentData[section] = exampleData[section]
+
+		for (let section in data) {
 			if (section === sectionToEdit) {
-				currentData[section] = dataToEdit
+				if (sectionToEdit === "personal") currentData[section] = dataToEdit
+				if (sectionToEdit === "education") {
+					let newEducation = []
+
+					if (formType === "edit") {
+						data[section].forEach((education) => {
+							console.log(education)
+							education.id === dataToEdit.id ? newEducation.push(dataToEdit) : newEducation.push(education)
+						})
+					} else {
+						dataToEdit.id = data[section].length
+						newEducation = [...data[section], dataToEdit]
+					}
+
+					currentData[section] = newEducation
+				}
+			} else {
+				currentData[section] = data[section]
 			}
 		}
 		setData(currentData)
@@ -105,6 +128,7 @@ function App() {
 				onClickReturn={handleOnClickReturn}
 				onClickAdd={handleOnClickAdd}
 				onChange={handleOnChange}
+				onClickSave={handleOnClickSave}
 			/>
 		</main>
 	)
