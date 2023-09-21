@@ -11,25 +11,65 @@ import Education from "./Components/Sections/Education"
 import { exampleData } from "./example-data"
 
 function App() {
-	const { personal } = exampleData
-	const [personalData, setPersonalData] = useState(personal)
-	const [newPersonalData, setNewPersonalData] = useState(personal)
-	const [isPersonalEdit, setIsPersonalEdit] = useState(false)
+	const [data, setData] = useState(exampleData)
+	const [dataToEdit, setDataToEdit] = useState(exampleData)
+	const [isDataEdit, setIsDataEdit] = useState(false)
+	const [sectionToEdit, setSectionToEdit] = useState("")
 
-	const handleOnClickEdit = () => {
-		setNewPersonalData(personalData)
-		setIsPersonalEdit(true)
+	const [formType, setFormType] = useState("") // ["edit", "add"]
+
+	const handleOnClickReturn = () => {
+		setIsDataEdit(false)
 	}
-	const handleOnClickReturn = () => setIsPersonalEdit(false)
+
+	function handleOnClickAdd() {
+		// TODO
+	}
+
+	const handleOnClickEdit = (e) => {
+		const section = e.target.closest("section").className
+		setSectionToEdit(section)
+		setIsDataEdit(true)
+		setFormType("edit")
+
+		if (section === "personal") setDataToEdit(data[section])
+		if (section === "education") {
+			const { key } = e.target.closest(".card-education").dataset
+			const ID = parseInt(key)
+			const { education } = data
+
+			education.map((educationData) => educationData.id === ID && setDataToEdit(educationData))
+		}
+	}
 
 	function handleOnChange(e) {
+		const { section } = e.target.closest("section").dataset
 		const { key } = e.target.dataset
-		setNewPersonalData({ ...newPersonalData, [key]: e.target.value })
+
+		const keyToSearch = section !== "education" ? key : key.split("-")[0]
+
+		setDataToEdit({ ...dataToEdit, [keyToSearch]: e.target.value })
+
+		// if (section === "personal") {
+		// 	setDataToEdit({ ...dataToEdit, [key]: e.target.value })
+		// }
+
+		// if (section === "education") {
+		// 	const keyToSearch = key.split("-")[0]
+		// 	setDataToEdit({ ...dataToEdit, [keyToSearch]: e.target.value })
+		// }
 	}
 
 	function handleOnClickSave() {
-		setPersonalData(newPersonalData)
-		setIsPersonalEdit(false)
+		const currentData = {}
+		for (let section in exampleData) {
+			currentData[section] = exampleData[section]
+			if (section === sectionToEdit) {
+				currentData[section] = dataToEdit
+			}
+		}
+		setData(currentData)
+		setIsDataEdit(false)
 	}
 
 	function handleOnClickPrint() {
@@ -37,7 +77,7 @@ function App() {
 	}
 
 	function handleOnClickResetData() {
-		setPersonalData(personal)
+		setData(exampleData)
 	}
 
 	return (
@@ -47,16 +87,25 @@ function App() {
 				onClickReset={handleOnClickResetData}
 			/>
 			<PersonalDetails
-				data={personalData}
+				data={isDataEdit && sectionToEdit === "personal" ? dataToEdit : data.personal}
 				onClickReturn={handleOnClickReturn}
-				dataToEdit={newPersonalData}
+				dataToEdit={dataToEdit}
 				onChange={handleOnChange}
 				onClickSave={handleOnClickSave}
 				onClickEdit={handleOnClickEdit}
-				isEdit={isPersonalEdit}
+				isEdit={sectionToEdit === "personal" && isDataEdit}
 			/>
 			<Experience />
-			<Education />
+			<Education
+				data={isDataEdit && sectionToEdit === "education" ? dataToEdit : data.education}
+				isEdit={sectionToEdit === "education" && isDataEdit}
+				titleType={formType}
+				showDeleteBtn={formType === "edit"}
+				onClickEdit={handleOnClickEdit}
+				onClickReturn={handleOnClickReturn}
+				onClickAdd={handleOnClickAdd}
+				onChange={handleOnChange}
+			/>
 		</main>
 	)
 }

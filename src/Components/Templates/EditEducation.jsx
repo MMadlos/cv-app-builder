@@ -5,7 +5,9 @@ import Button from "../Units/Buttons"
 function EditEducation({ titleType, dataToEdit, onChange, onClickReturn, onClickSave, onClickDelete, showDeleteBtn }) {
 	const { title, center, date } = dataToEdit
 	return (
-		<section className="edit experience">
+		<section
+			className="edit experience"
+			data-section="education">
 			<TitleSection
 				titleType={titleType}
 				sectionName="education"

@@ -108,7 +108,7 @@ section {
 	border-radius: 16px;
 	background-color: var(--white-bg);
 
-	&:not(.personal-details) {
+	&:not(.personal) {
 		padding: 32px;
 	}
 
@@ -127,7 +127,7 @@ section {
 }
 
 /* PERSONAL DETAILS */
-section.personal-details {
+section.personal {
 	overflow: hidden;
 
 	.personal-details-background {

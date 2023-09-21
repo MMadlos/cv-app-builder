@@ -6,7 +6,9 @@ function EditPersonalDetails({ titleType, onClickReturn, dataToEdit, onChange, o
 	const { fullName, location, email, linkedin } = dataToEdit
 
 	return (
-		<section className="edit-info edit">
+		<section
+			className="edit-info edit"
+			data-section="personal">
 			<TitleSection
 				titleType={titleType}
 				onClickReturn={onClickReturn}

@@ -16,7 +16,7 @@ function ShowPersonalDetails({ personalInfo, onClick }) {
 	}
 
 	return (
-		<section className="personal-details">
+		<section className="personal">
 			<div className="personal-details-background"></div>
 			<div className="personal-data">
 				<div className="avatar-container">
