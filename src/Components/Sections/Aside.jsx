@@ -1,23 +1,15 @@
-function Aside() {
-	function handleOnClickPrint() {
-		window.print()
-	}
-
-	function handleOnClickResetData() {
-		location.reload()
-	}
-
+function Aside({ onClickPrint, onClickReset }) {
 	return (
 		<aside>
 			<button
 				id="print"
-				onClick={handleOnClickPrint}>
+				onClick={onClickPrint}>
 				<i className="fa-solid fa-print" />
 				Preview / Print
 			</button>
 			<button
 				id="reset-data"
-				onClick={handleOnClickResetData}>
+				onClick={onClickReset}>
 				Reset data
 			</button>
 		</aside>

@@ -9,7 +9,6 @@ function EditPersonalDetails({ titleType, onClickReturn, dataToEdit, onChange, o
 		<section className="edit-info edit">
 			<TitleSection
 				titleType={titleType}
-				isEdit={true}
 				onClickReturn={onClickReturn}
 				sectionName="personal"
 			/>

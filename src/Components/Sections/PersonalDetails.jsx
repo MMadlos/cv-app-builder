@@ -1,40 +1,40 @@
-import { useState } from "react"
+// import { useState } from "react"
 
-import { examplePersonalInfo } from "../../example-data"
+// import { examplePersonalInfo } from "../../example-data"
 
 import EditPersonalDetails from "../Templates/EditPersonalDetails"
 import ShowPersonalDetails from "../Templates/ShowPersonalDetails"
 
-function PersonalDetails() {
-	const [personalInfo, setPersonalInfo] = useState(examplePersonalInfo)
-	const [editedInfo, setEditedInfo] = useState(examplePersonalInfo)
-	const [isInfoEditing, setInfoEditing] = useState(false)
+function PersonalDetails({ data, onClickReturn, dataToEdit, onChange, onClickSave, onClickEdit, isEdit }) {
+	// const [personalInfo, setPersonalInfo] = useState(defaultData)
+	// const [dataToEdit, setDataToEdit] = useState(defaultData)
+	// const [isEdit, setIsEdit] = useState(false)
 
-	const toggleEditInfo = () => setInfoEditing(!isInfoEditing)
+	// const handleOnClickEdit = () => setIsEdit(!isEdit)
 
-	function handleInfo(e) {
-		const { key } = e.target.dataset
-		setEditedInfo({ ...editedInfo, [key]: e.target.value })
-	}
+	// function handleOnChange(e) {
+	// 	const { key } = e.target.dataset
+	// 	setDataToEdit({ ...dataToEdit, [key]: e.target.value })
+	// }
 
-	function handleSaveInfo() {
-		setPersonalInfo(editedInfo)
-		setInfoEditing(false)
-	}
+	// function handleOnClickSave() {
+	// 	setPersonalInfo(dataToEdit)
+	// 	setIsEdit(false)
+	// }
 
-	return isInfoEditing ? (
+	return isEdit ? (
 		<EditPersonalDetails
 			titleType="edit"
-			onClickReturn={toggleEditInfo}
-			dataToEdit={editedInfo}
-			onChange={handleInfo}
-			onClickSave={handleSaveInfo}
+			onClickReturn={onClickReturn}
+			dataToEdit={dataToEdit}
+			onChange={onChange}
+			onClickSave={onClickSave}
 		/>
 	) : (
 		<ShowPersonalDetails
 			titleType="show"
-			personalInfo={personalInfo}
-			onClick={toggleEditInfo}
+			personalInfo={data}
+			onClick={onClickEdit}
 		/>
 	)
 }

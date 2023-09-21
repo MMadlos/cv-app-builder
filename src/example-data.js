@@ -67,4 +67,10 @@ const emptyEducation = {
 	date: "",
 }
 
-export { examplePersonalInfo, exampleExperienceInfo, emptyExperience, exampleEducation, emptyEducation }
+const exampleData = {
+	personal: examplePersonalInfo,
+	experience: exampleExperienceInfo,
+	education: exampleEducation,
+}
+
+export { examplePersonalInfo, exampleExperienceInfo, emptyExperience, exampleEducation, emptyEducation, exampleData }

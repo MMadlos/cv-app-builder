@@ -1,13 +1,13 @@
-const textBtn = {
-	edit: "Guardar",
-	delete: "Eliminar",
-	add: "Añadir",
-	return: "",
-}
-
 function Button({ type, id, onClick }) {
 	const isReturn = type === "return"
 	const isDelete = type === "delete"
+
+	const textBtn = {
+		edit: "Guardar",
+		delete: "Eliminar",
+		add: "Añadir",
+		return: "",
+	}
 
 	return (
 		<button
