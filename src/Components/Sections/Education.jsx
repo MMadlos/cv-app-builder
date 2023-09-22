@@ -5,7 +5,7 @@
 import ShowEducation from "../Templates/ShowEducation"
 import EditEducation from "../Templates/EditEducation"
 
-function Education({ data, isEdit, onClickAdd, onClickEdit, onClickReturn, onChange, onClickSave, titleType, showDeleteBtn }) {
+function Education({ data, isEdit, onClickAdd, onClickEdit, onClickReturn, onChange, onClickSave, titleType, showDeleteBtn, onClickDelete }) {
 	// const [showForm, setShowForm] = useState(false)
 	// const [educationData, setEducationData] = useState(exampleEducation)
 	// const [educationID, setEducationID] = useState(0)
@@ -91,7 +91,7 @@ function Education({ data, isEdit, onClickAdd, onClickEdit, onClickReturn, onCha
 			onChange={onChange}
 			onClickReturn={onClickReturn}
 			onClickSave={onClickSave}
-			// onClickDelete={handleOnClickDelete}
+			onClickDelete={onClickDelete}
 			showDeleteBtn={showDeleteBtn}
 		/>
 	) : (

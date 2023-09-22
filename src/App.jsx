@@ -108,6 +108,28 @@ function App() {
 		setIsDataEdit(false)
 	}
 
+	function handleOnClickDelete() {
+		// const confirmation = window.confirm("Do you want to delete it?")
+		// if (!confirmation) return
+
+		const newData = {}
+		for (let sectionName in data) {
+			if (sectionName !== sectionToEdit) {
+				newData[sectionName] = data[sectionName]
+			}
+			if (sectionName === sectionToEdit) {
+				const sectionData = data[sectionName]
+				newData[sectionName] = []
+				// --> Recorrer el array y revisar si data[section][#].id === dataToEdit.id
+				sectionData.forEach((information) => {
+					if (information.id !== dataToEdit.id) newData[sectionName].push(information)
+				})
+			}
+		}
+		setData(newData)
+		setIsDataEdit(false)
+	}
+
 	function handleOnClickPrint() {
 		window.print()
 	}
@@ -142,6 +164,7 @@ function App() {
 				onClickAdd={handleOnClickAdd}
 				onChange={handleOnChange}
 				onClickSave={handleOnClickSave}
+				onClickDelete={handleOnClickDelete}
 			/>
 		</main>
 	)
