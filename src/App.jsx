@@ -22,8 +22,20 @@ function App() {
 		setIsDataEdit(false)
 	}
 
-	function handleOnClickAdd() {
+	function handleOnClickAdd(e) {
+		const section = e.target.closest("section").className
+		setSectionToEdit(section)
+		setIsDataEdit(true)
+		setFormType("add")
+
 		// TODO
+		const emptyTemplate = {}
+		const getExampleStructure = data[section][0]
+		for (let key in getExampleStructure) {
+			emptyTemplate[key] = ""
+		}
+
+		setDataToEdit(emptyTemplate)
 	}
 
 	const handleOnClickEdit = (e) => {
@@ -69,26 +81,27 @@ function App() {
 		*/
 		const currentData = {}
 
-		for (let section in data) {
-			if (section === sectionToEdit) {
-				if (sectionToEdit === "personal") currentData[section] = dataToEdit
+		for (let sectionName in data) {
+			if (sectionName === sectionToEdit) {
+				if (sectionToEdit === "personal") currentData[sectionName] = dataToEdit
 				if (sectionToEdit === "education") {
 					let newEducation = []
 
 					if (formType === "edit") {
-						data[section].forEach((education) => {
+						data[sectionName].forEach((education) => {
 							console.log(education)
 							education.id === dataToEdit.id ? newEducation.push(dataToEdit) : newEducation.push(education)
 						})
-					} else {
-						dataToEdit.id = data[section].length
-						newEducation = [...data[section], dataToEdit]
+					}
+					if (formType === "add") {
+						dataToEdit.id = data[sectionName].length
+						newEducation = [...data[sectionName], dataToEdit]
 					}
 
-					currentData[section] = newEducation
+					currentData[sectionName] = newEducation
 				}
 			} else {
-				currentData[section] = data[section]
+				currentData[sectionName] = data[sectionName]
 			}
 		}
 		setData(currentData)
