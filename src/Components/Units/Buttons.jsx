@@ -3,9 +3,9 @@ function Button({ type, id, onClick }) {
 	const isDelete = type === "delete"
 
 	const textBtn = {
-		edit: "Guardar",
-		delete: "Eliminar",
-		add: "Añadir",
+		edit: "Save",
+		delete: "Remove",
+		add: "Add",
 		return: "",
 	}
 

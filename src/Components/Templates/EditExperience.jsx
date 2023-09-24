@@ -19,7 +19,7 @@ function EditExperience({ titleType, dataToEdit, onChange, onClickSave, onClickR
 			<div className="form">
 				<FormInput
 					id="companyName"
-					labelName="Company name"
+					labelName="Company's name"
 					value={companyName}
 					onChange={onChange}
 				/>
@@ -36,7 +36,7 @@ function EditExperience({ titleType, dataToEdit, onChange, onClickSave, onClickR
 						id="currentPosition"
 						checked={currentPosition}
 						onChange={onChange}
-						labelName="Cargo actual"
+						labelName="Current position"
 					/>
 				</div>
 				<FormInput

@@ -24,7 +24,7 @@ function EditEducation({ titleType, dataToEdit, onChange, onClickReturn, onClick
 				/>
 				<FormInput
 					id="center-education"
-					labelName="Center's Name"
+					labelName="Center's name"
 					dataKey="center"
 					value={center}
 					onChange={onChange}

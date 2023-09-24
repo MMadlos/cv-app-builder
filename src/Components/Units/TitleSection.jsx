@@ -2,17 +2,17 @@ import Button from "./Buttons"
 
 const titleList = {
 	experience: {
-		edit: "Editar experiencia",
-		add: "Añadir experiencia",
-		show: "Experiencia",
+		edit: "Edit experience",
+		add: "Add experience",
+		show: "Experience",
 	},
 	personal: {
-		edit: "Editar información",
+		edit: "Edit personal information",
 	},
 	education: {
-		edit: "Editar formación",
-		add: "Añadir formación",
-		show: "Formación",
+		edit: "Edit education",
+		add: "Add education",
+		show: "Education",
 	},
 }
 
