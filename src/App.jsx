@@ -15,12 +15,11 @@ function App() {
 	const [dataToEdit, setDataToEdit] = useState(exampleData)
 	const [isDataEdit, setIsDataEdit] = useState(false)
 	const [sectionToEdit, setSectionToEdit] = useState("")
-
 	const [formType, setFormType] = useState("") // ["edit", "add"]
 
-	const handleOnClickReturn = () => {
-		setIsDataEdit(false)
-	}
+	const handleOnClickReturn = () => setIsDataEdit(false)
+	const handleOnClickPrint = () => window.print()
+	const handleOnClickResetData = () => setData(exampleData)
 
 	function handleOnClickAdd(e) {
 		const section = e.target.closest("section").className
@@ -28,7 +27,6 @@ function App() {
 		setIsDataEdit(true)
 		setFormType("add")
 
-		// TODO
 		const emptyTemplate = {}
 		const getExampleStructure = data[section][0]
 		for (let key in getExampleStructure) {
@@ -65,12 +63,6 @@ function App() {
 	}
 
 	function handleOnClickSave() {
-		// TODO -> Check for required elements
-		/*
-		for (let key in dataToEdit) {
-			if (dataToEdit[key] === "") return alert(`${key} is required"`)
-		}
-		*/
 		const currentData = {}
 
 		for (let sectionName in data) {
@@ -103,9 +95,6 @@ function App() {
 	}
 
 	function handleOnClickDelete() {
-		// const confirmation = window.confirm("Do you want to delete it?")
-		// if (!confirmation) return
-
 		const newData = {}
 		for (let sectionName in data) {
 			const sectionData = data[sectionName]
@@ -120,14 +109,6 @@ function App() {
 		}
 		setData(newData)
 		setIsDataEdit(false)
-	}
-
-	function handleOnClickPrint() {
-		window.print()
-	}
-
-	function handleOnClickResetData() {
-		setData(exampleData)
 	}
 
 	return (
