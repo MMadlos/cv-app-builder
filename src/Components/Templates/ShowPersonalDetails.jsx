@@ -1,5 +1,5 @@
 import { useState } from "react"
-import profilePicture from "../../../public/Agumon2006_DM.jpg"
+import profilePicture from "../../assets/unknown_profile.jpg"
 
 function ShowPersonalDetails({ personalInfo, onClick }) {
 	const { name, location, email, linkedin } = personalInfo
