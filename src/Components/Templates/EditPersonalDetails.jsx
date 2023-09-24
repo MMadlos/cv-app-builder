@@ -3,7 +3,7 @@ import TitleSection from "../Units/TitleSection"
 import Button from "../Units/Buttons"
 
 function EditPersonalDetails({ titleType, onClickReturn, dataToEdit, onChange, onClickSave }) {
-	const { fullName, location, email, linkedin } = dataToEdit
+	const { name, location, email, linkedin } = dataToEdit
 
 	return (
 		<section
@@ -20,8 +20,7 @@ function EditPersonalDetails({ titleType, onClickReturn, dataToEdit, onChange, o
 					id="name"
 					labelName="Nombre"
 					onChange={onChange}
-					value={fullName}
-					dataKey="fullName"
+					value={name}
 					placeholder="Paquito Peras"
 				/>
 				<FormInput

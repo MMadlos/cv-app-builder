@@ -19,17 +19,20 @@ function EditEducation({ titleType, dataToEdit, onChange, onClickReturn, onClick
 					id="title-education"
 					labelName="Title"
 					value={title}
+					dataKey="title"
 					onChange={onChange}
 				/>
 				<FormInput
 					id="center-education"
 					labelName="Center's Name"
+					dataKey="center"
 					value={center}
 					onChange={onChange}
 				/>
 				<FormInput
 					id="date-education"
 					labelName="Date"
+					dataKey="date"
 					value={date}
 					onChange={onChange}
 				/>

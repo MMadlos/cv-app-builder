@@ -1,5 +1,5 @@
 const examplePersonalInfo = {
-	fullName: "Paquito Peras",
+	name: "Paquito Peras",
 	location: "Madrid, Spain",
 	email: "paquito_peras@example.com",
 	linkedin: "linkedin/paquito-peras",

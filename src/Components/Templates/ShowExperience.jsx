@@ -3,6 +3,7 @@ import TitleSection from "../Units/TitleSection"
 
 function ShowExperience({ titleType, experienceData, onClickEdit, onClickAdd }) {
 	const sortedExperience = experienceData.sort((a, b) => b.startDate - a.startDate)
+	const expLength = sortedExperience.length
 
 	return (
 		<section className="experience">

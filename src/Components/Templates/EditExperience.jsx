@@ -6,7 +6,9 @@ function EditExperience({ titleType, dataToEdit, onChange, onClickSave, onClickR
 	const { companyName, position, currentPosition, startDate, endDate, description } = dataToEdit
 
 	return (
-		<section className="edit experience">
+		<section
+			className="edit experience"
+			data-section="experience">
 			<TitleSection
 				titleType={titleType}
 				isEdit={isEdit}

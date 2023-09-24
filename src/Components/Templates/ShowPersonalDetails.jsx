@@ -2,8 +2,7 @@ import { useState } from "react"
 import profilePicture from "../../../public/Agumon2006_DM.jpg"
 
 function ShowPersonalDetails({ personalInfo, onClick }) {
-	const { fullName, location, email, linkedin } = personalInfo
-
+	const { name, location, email, linkedin } = personalInfo
 	const [imageProfile, setImageProfile] = useState(profilePicture)
 
 	function handleOnClickPicture() {
@@ -35,7 +34,7 @@ function ShowPersonalDetails({ personalInfo, onClick }) {
 					/>
 				</div>
 				<div className="name">
-					<h1>{fullName ? fullName : "My name"}</h1>
+					<h1>{name ? name : "My name"}</h1>
 					<i
 						className="fa-solid fa-pencil"
 						onClick={onClick}></i>

@@ -44,48 +44,24 @@ function App() {
 		setIsDataEdit(true)
 		setFormType("edit")
 
-		if (section === "personal") setDataToEdit(data[section])
-		if (section === "education") {
-			const { key } = e.target.closest(".card-education").dataset
-			const ID = parseInt(key)
-			const { education } = data
+		if (section === "personal") return setDataToEdit(data[section])
 
-			education.map((educationData) => educationData.id === ID && setDataToEdit(educationData))
-		}
-		if (section === "experience") {
-			const { key } = e.target.parentNode.dataset
-			const ID = parseInt(key)
-			const { experience } = data
+		const key = section === "education" ? e.target.closest(".card-education").dataset.key : e.target.parentNode.dataset.key
 
-			experience.map((experienceData) => experienceData.id === ID && setDataToEdit(experienceData))
-		}
+		const ID = parseInt(key)
+
+		data[section].map((sectionData) => sectionData.id === ID && setDataToEdit(sectionData))
 	}
 
 	function handleOnChange(e) {
-		const { section } = e.target.closest("section").dataset
 		const { key } = e.target.dataset
 
-		// TODO - Check "experience" part
-		if (section === "experience") {
-			const isCheckBox = e.target.type === "checkbox"
-			const isTextArea = e.target === "textarea"
+		const isCheckBox = e.target.type === "checkbox"
+		const isTextArea = e.target === "textarea"
 
-			const value = isCheckBox ? e.target.checked : isTextArea ? e.target.textContent : e.target.value
+		const value = isCheckBox ? e.target.checked : isTextArea ? e.target.textContent : e.target.value
 
-			setDataToEdit({ ...dataToEdit, [key]: value })
-		} else {
-			const keyToSearch = section === "education" ? key.split("-")[0] : key
-			setDataToEdit({ ...dataToEdit, [keyToSearch]: e.target.value })
-		}
-
-		// if (section === "personal") {
-		// 	setDataToEdit({ ...dataToEdit, [key]: e.target.value })
-		// }
-
-		// if (section === "education") {
-		// 	const keyToSearch = key.split("-")[0]
-		// 	setDataToEdit({ ...dataToEdit, [keyToSearch]: e.target.value })
-		// }
+		setDataToEdit({ ...dataToEdit, [key]: value })
 	}
 
 	function handleOnClickSave() {
@@ -98,43 +74,29 @@ function App() {
 		const currentData = {}
 
 		for (let sectionName in data) {
-			if (sectionName !== sectionToEdit) currentData[sectionName] = data[sectionName]
-
-			if (sectionName === sectionToEdit) {
-				if (sectionToEdit === "personal") currentData[sectionName] = dataToEdit
-
-				if (sectionToEdit === "education") {
-					let newEducation = []
-
-					if (formType === "edit") {
-						data[sectionName].forEach((education) => {
-							education.id === dataToEdit.id ? newEducation.push(dataToEdit) : newEducation.push(education)
-						})
-					}
-					if (formType === "add") {
-						dataToEdit.id = data[sectionName].length
-						newEducation = [...data[sectionName], dataToEdit]
-					}
-
-					currentData[sectionName] = newEducation
-				}
-
-				if (sectionToEdit === "experience") {
-					let newExperience = []
-
-					if (formType === "edit") {
-						data[sectionName].forEach((experience) => {
-							experience.id === dataToEdit.id ? newExperience.push(dataToEdit) : newExperience.push(experience)
-						})
-					}
-					if (formType === "add") {
-						dataToEdit.id = data[sectionName].length
-						newExperience = [...data[sectionName], dataToEdit]
-					}
-
-					currentData[sectionName] = newExperience
-				}
+			if (sectionName !== sectionToEdit) {
+				currentData[sectionName] = data[sectionName]
+				continue
 			}
+
+			if (sectionToEdit === "personal") {
+				currentData[sectionName] = dataToEdit
+				continue
+			}
+
+			let newData = []
+
+			if (formType === "add") {
+				dataToEdit.id = data[sectionName].length
+				newData = [...data[sectionName], dataToEdit]
+			}
+			if (formType === "edit") {
+				data[sectionName].forEach((education) => {
+					const isSameID = education.id === dataToEdit.id
+					newData.push(isSameID ? dataToEdit : education)
+				})
+			}
+			currentData[sectionName] = newData
 		}
 		setData(currentData)
 		setIsDataEdit(false)
@@ -152,7 +114,7 @@ function App() {
 			if (sectionName === sectionToEdit) {
 				newData[sectionName] = []
 				sectionData.forEach((information) => {
-					if (information.id !== dataToEdit.id) newData[sectionName].push(information)
+					information.id !== dataToEdit.id && newData[sectionName].push(information)
 				})
 			}
 		}
