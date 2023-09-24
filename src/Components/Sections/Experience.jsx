@@ -1,31 +1,32 @@
-import { useState } from "react"
-import { exampleExperienceInfo, emptyExperience } from "../../example-data"
+// import { useState } from "react"
+// import { exampleExperienceInfo, emptyExperience } from "../../example-data"
 import ShowExperience from "../Templates/ShowExperience"
 import EditExperience from "../Templates/EditExperience"
 
-function Experience() {
-	const [experienceInfo, setExperienceInfo] = useState(exampleExperienceInfo)
-	const [experienceToEdit, setExperienceToEdit] = useState(emptyExperience)
-	const [experienceID, setExperienceID] = useState(0)
-	const [showForm, setShowForm] = useState(false)
-	const [isEditForm, setIsEditForm] = useState(false)
-	const [showDeleteBtn, setShowDeleteBtn] = useState(false)
-	const [titleType, setTitleType] = useState("")
+function Experience({ data, titleType, isEdit, onClickEdit, onClickAdd, onClickReturn, onChange, onClickSave, showDeleteBtn, onClickDelete }) {
+	// const [experienceInfo, setExperienceInfo] = useState(exampleExperienceInfo)
+	// const [experienceToEdit, setExperienceToEdit] = useState(emptyExperience)
+	// const [experienceID, setExperienceID] = useState(0)
+	// const [showForm, setShowForm] = useState(false)
+	// const [isEditForm, setIsEditForm] = useState(false)
+	// const [showDeleteBtn, setShowDeleteBtn] = useState(false)
+	// const [titleType, setTitleType] = useState("")
 
-	function handleOnClickEdit(e) {
-		const { key } = e.target.parentNode.dataset
-		const ID = parseInt(key)
-		setExperienceID(ID)
-		setShowForm(true)
-		setIsEditForm(true)
-		setShowDeleteBtn(true)
-		setTitleType("edit")
+	// function handleOnClickEdit(e) {
+	// 	const { key } = e.target.parentNode.dataset
+	// 	const ID = parseInt(key)
+	// 	setExperienceID(ID)
+	// 	setShowForm(true)
+	// 	setIsEditForm(true)
+	// 	setShowDeleteBtn(true)
+	// 	setTitleType("edit")
 
-		experienceInfo.map((experience) => {
-			if (experience.id === ID) return setExperienceToEdit(experience)
-		})
-	}
+	// 	experienceInfo.map((experience) => {
+	// 		if (experience.id === ID) return setExperienceToEdit(experience)
+	// 	})
+	// }
 
+	/*
 	function handleOnChangeEdit(e) {
 		const { key } = e.target.dataset
 		const isCheckBox = e.target.type === "checkbox"
@@ -35,7 +36,9 @@ function Experience() {
 
 		setExperienceToEdit({ ...experienceToEdit, [key]: value })
 	}
+	*/
 
+	/*
 	function handleOnClickSave() {
 		let newExperience = []
 
@@ -54,49 +57,49 @@ function Experience() {
 		setIsEditForm(false)
 	}
 
-	function handleOnClickReturn() {
-		setShowForm(false)
-		setIsEditForm(false)
-	}
+	*/
 
-	function handleOnClickAdd() {
-		setIsEditForm(true)
-		setShowForm(true)
-		setExperienceToEdit(emptyExperience)
-		setShowDeleteBtn(false)
-		setTitleType("add")
-	}
+	// function handleOnClickReturn() {
+	// 	setShowForm(false)
+	// 	setIsEditForm(false)
+	// }
 
-	function handleOnClickDelete() {
-		const confirmation = window.confirm("Are you sure?")
-		if (!confirmation) return
+	// function handleOnClickAdd() {
+	// 	setIsEditForm(true)
+	// 	setShowForm(true)
+	// 	setExperienceToEdit(emptyExperience)
+	// 	setShowDeleteBtn(false)
+	// 	setTitleType("add")
+	// }
 
-		let newExperience = []
-		experienceInfo.forEach((experience) => {
-			if (experience.id !== experienceID) newExperience.push(experience)
-		})
-		setExperienceInfo(newExperience)
-		setShowForm(false)
-	}
+	// function handleOnClickDelete() {
+	// 	const confirmation = window.confirm("Are you sure?")
+	// 	if (!confirmation) return
 
-	return showForm ? (
+	// 	let newExperience = []
+	// 	experienceInfo.forEach((experience) => {
+	// 		if (experience.id !== experienceID) newExperience.push(experience)
+	// 	})
+	// 	setExperienceInfo(newExperience)
+	// 	setShowForm(false)
+	// }
+
+	return isEdit ? (
 		<EditExperience
+			dataToEdit={data}
 			titleType={titleType}
-			isEdit={isEditForm}
-			editExperience={experienceToEdit}
-			onChange={handleOnChangeEdit}
-			onClickSaveExp={handleOnClickSave}
-			onClickReturn={handleOnClickReturn}
+			onChange={onChange}
+			onClickReturn={onClickReturn}
+			onClickSave={onClickSave}
+			onClickDelete={onClickDelete}
 			showDeleteBtn={showDeleteBtn}
-			onClickDelete={handleOnClickDelete}
 		/>
 	) : (
 		<ShowExperience
 			titleType={"show"}
-			isEdit={isEditForm}
-			experienceData={experienceInfo}
-			onClickEdit={handleOnClickEdit}
-			onClickAddExp={handleOnClickAdd}
+			experienceData={data}
+			onClickEdit={onClickEdit}
+			onClickAdd={onClickAdd}
 		/>
 	)
 }

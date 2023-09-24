@@ -52,15 +52,31 @@ function App() {
 
 			education.map((educationData) => educationData.id === ID && setDataToEdit(educationData))
 		}
+		if (section === "experience") {
+			const { key } = e.target.parentNode.dataset
+			const ID = parseInt(key)
+			const { experience } = data
+
+			experience.map((experienceData) => experienceData.id === ID && setDataToEdit(experienceData))
+		}
 	}
 
 	function handleOnChange(e) {
 		const { section } = e.target.closest("section").dataset
 		const { key } = e.target.dataset
 
-		const keyToSearch = section !== "education" ? key : key.split("-")[0]
+		// TODO - Check "experience" part
+		if (section === "experience") {
+			const isCheckBox = e.target.type === "checkbox"
+			const isTextArea = e.target === "textarea"
 
-		setDataToEdit({ ...dataToEdit, [keyToSearch]: e.target.value })
+			const value = isCheckBox ? e.target.checked : isTextArea ? e.target.textContent : e.target.value
+
+			setDataToEdit({ ...dataToEdit, [key]: value })
+		} else {
+			const keyToSearch = section === "education" ? key.split("-")[0] : key
+			setDataToEdit({ ...dataToEdit, [keyToSearch]: e.target.value })
+		}
 
 		// if (section === "personal") {
 		// 	setDataToEdit({ ...dataToEdit, [key]: e.target.value })
@@ -82,14 +98,16 @@ function App() {
 		const currentData = {}
 
 		for (let sectionName in data) {
+			if (sectionName !== sectionToEdit) currentData[sectionName] = data[sectionName]
+
 			if (sectionName === sectionToEdit) {
 				if (sectionToEdit === "personal") currentData[sectionName] = dataToEdit
+
 				if (sectionToEdit === "education") {
 					let newEducation = []
 
 					if (formType === "edit") {
 						data[sectionName].forEach((education) => {
-							console.log(education)
 							education.id === dataToEdit.id ? newEducation.push(dataToEdit) : newEducation.push(education)
 						})
 					}
@@ -100,8 +118,22 @@ function App() {
 
 					currentData[sectionName] = newEducation
 				}
-			} else {
-				currentData[sectionName] = data[sectionName]
+
+				if (sectionToEdit === "experience") {
+					let newExperience = []
+
+					if (formType === "edit") {
+						data[sectionName].forEach((experience) => {
+							experience.id === dataToEdit.id ? newExperience.push(dataToEdit) : newExperience.push(experience)
+						})
+					}
+					if (formType === "add") {
+						dataToEdit.id = data[sectionName].length
+						newExperience = [...data[sectionName], dataToEdit]
+					}
+
+					currentData[sectionName] = newExperience
+				}
 			}
 		}
 		setData(currentData)
@@ -114,13 +146,11 @@ function App() {
 
 		const newData = {}
 		for (let sectionName in data) {
-			if (sectionName !== sectionToEdit) {
-				newData[sectionName] = data[sectionName]
-			}
+			const sectionData = data[sectionName]
+
+			if (sectionName !== sectionToEdit) newData[sectionName] = sectionData
 			if (sectionName === sectionToEdit) {
-				const sectionData = data[sectionName]
 				newData[sectionName] = []
-				// --> Recorrer el array y revisar si data[section][#].id === dataToEdit.id
 				sectionData.forEach((information) => {
 					if (information.id !== dataToEdit.id) newData[sectionName].push(information)
 				})
@@ -153,7 +183,18 @@ function App() {
 				onClickEdit={handleOnClickEdit}
 				isEdit={sectionToEdit === "personal" && isDataEdit}
 			/>
-			<Experience />
+			<Experience
+				data={isDataEdit && sectionToEdit === "experience" ? dataToEdit : data.experience}
+				isEdit={sectionToEdit === "experience" && isDataEdit}
+				titleType={formType}
+				showDeleteBtn={formType === "edit"}
+				onClickEdit={handleOnClickEdit}
+				onClickReturn={handleOnClickReturn}
+				onClickAdd={handleOnClickAdd}
+				onChange={handleOnChange}
+				onClickSave={handleOnClickSave}
+				onClickDelete={handleOnClickDelete}
+			/>
 			<Education
 				data={isDataEdit && sectionToEdit === "education" ? dataToEdit : data.education}
 				isEdit={sectionToEdit === "education" && isDataEdit}

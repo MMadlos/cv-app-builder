@@ -2,8 +2,8 @@ import FormInput from "../Units/FormInput"
 import TitleSection from "../Units/TitleSection"
 import Button from "../Units/Buttons"
 
-function EditExperience({ titleType, editExperience, onChange, onClickSaveExp, onClickReturn, onClickDelete, isEdit, showDeleteBtn }) {
-	const { companyName, position, currentPosition, startDate, endDate, description } = editExperience
+function EditExperience({ titleType, dataToEdit, onChange, onClickSave, onClickReturn, onClickDelete, isEdit, showDeleteBtn }) {
+	const { companyName, position, currentPosition, startDate, endDate, description } = dataToEdit
 
 	return (
 		<section className="edit experience">
@@ -64,7 +64,7 @@ function EditExperience({ titleType, editExperience, onChange, onClickSaveExp, o
 				<Button
 					type={titleType}
 					id="save-info"
-					onClick={onClickSaveExp}
+					onClick={onClickSave}
 				/>
 				{showDeleteBtn && (
 					<Button
