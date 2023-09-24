@@ -1,15 +1,15 @@
 const examplePersonalInfo = {
-	name: "Paquito Peras",
-	location: "Madrid, Spain",
-	email: "paquito_peras@example.com",
-	linkedin: "linkedin/paquito-peras",
+	name: "Firstname Lastname",
+	location: "City, Country",
+	email: "Firstname_Lastname@example.com",
+	linkedin: "linkedin/firstname-lastname",
 }
 
 const exampleExperienceInfo = [
 	{
 		id: 0,
-		companyName: "Nombre empresa",
-		position: "Nombre de la posición",
+		companyName: "Linkedin",
+		position: "Manager",
 		currentPosition: false,
 		startDate: "2013",
 		endDate: "2023",
@@ -26,7 +26,7 @@ const exampleExperienceInfo = [
 	},
 	{
 		id: 2,
-		companyName: "Google",
+		companyName: "Meta",
 		position: "Team Lead",
 		currentPosition: true,
 		startDate: "1997",
@@ -35,37 +35,20 @@ const exampleExperienceInfo = [
 	},
 ]
 
-const emptyExperience = {
-	id: null,
-	companyName: "",
-	position: "",
-	currentPosition: false,
-	startDate: "",
-	endDate: "",
-	description: "",
-}
-
 const exampleEducation = [
 	{
 		id: 0,
-		title: "Administración y dirección de empresas",
-		center: "UAB",
+		title: "Business Degree",
+		center: "BAS",
 		date: "2019",
 	},
 	{
 		id: 1,
-		title: "Máster en UX/UI Design, Product Design",
-		center: "Nuclio School",
+		title: "Máster Degree",
+		center: "EADE",
 		date: "2023",
 	},
 ]
-
-const emptyEducation = {
-	id: null,
-	title: "",
-	center: "",
-	date: "",
-}
 
 const exampleData = {
 	personal: examplePersonalInfo,
@@ -73,4 +56,4 @@ const exampleData = {
 	education: exampleEducation,
 }
 
-export { examplePersonalInfo, exampleExperienceInfo, emptyExperience, exampleEducation, emptyEducation, exampleData }
+export { examplePersonalInfo, exampleExperienceInfo, exampleData }
