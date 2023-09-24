@@ -131,13 +131,14 @@ section.personal {
 	overflow: hidden;
 
 	.personal-details-background {
-		height: 120px;
+		height: 80px;
 		background: linear-gradient(90deg, #ff8a8a 0%, #563fe5 100%);
 	}
 
 	.personal-data {
 		position: relative;
 		padding: 32px;
+		padding-top: 62px;
 
 		.avatar-container {
 			overflow: hidden;

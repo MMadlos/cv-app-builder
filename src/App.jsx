@@ -45,7 +45,6 @@ function App() {
 		if (section === "personal") return setDataToEdit(data[section])
 
 		const key = section === "education" ? e.target.closest(".card-education").dataset.key : e.target.parentNode.dataset.key
-
 		const ID = parseInt(key)
 
 		data[section].map((sectionData) => sectionData.id === ID && setDataToEdit(sectionData))
@@ -97,12 +96,10 @@ function App() {
 	function handleOnClickDelete() {
 		const newData = {}
 		for (let sectionName in data) {
-			const sectionData = data[sectionName]
-
-			if (sectionName !== sectionToEdit) newData[sectionName] = sectionData
+			if (sectionName !== sectionToEdit) newData[sectionName] = data[sectionName]
 			if (sectionName === sectionToEdit) {
 				newData[sectionName] = []
-				sectionData.forEach((information) => {
+				data[sectionName].forEach((information) => {
 					information.id !== dataToEdit.id && newData[sectionName].push(information)
 				})
 			}
