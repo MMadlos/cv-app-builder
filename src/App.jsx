@@ -19,7 +19,9 @@ function App() {
 
 	const handleOnClickReturn = () => setIsDataEdit(false)
 	const handleOnClickPrint = () => window.print()
-	const handleOnClickResetData = () => setData(exampleData)
+	const handleOnClickResetData = () => {
+		if (window.confirm("The changes you've made will be replaced with the example data")) setData(exampleData)
+	}
 
 	function handleOnClickAdd(e) {
 		const section = e.target.closest("section").className

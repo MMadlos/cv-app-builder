@@ -1,24 +1,24 @@
 const examplePersonalInfo = {
-	name: "Firstname Lastname",
+	name: "Name Lastname",
 	location: "City, Country",
-	email: "Firstname_Lastname@example.com",
-	linkedin: "linkedin/firstname-lastname",
+	email: "Name_Lastname@example.com",
+	linkedin: "linkedin/name-lastname",
 }
 
 const exampleExperienceInfo = [
 	{
 		id: 0,
 		companyName: "Linkedin",
-		position: "Manager",
+		position: "Project Manager",
 		currentPosition: false,
-		startDate: "2013",
-		endDate: "2023",
+		startDate: "2015",
+		endDate: "2020",
 		description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem praesentium voluptatibus unde, cumque omnis sed? ",
 	},
 	{
 		id: 1,
 		companyName: "Google",
-		position: "Team Lead",
+		position: "Project Manager",
 		currentPosition: true,
 		startDate: "2020",
 		endDate: "2023",
@@ -27,10 +27,10 @@ const exampleExperienceInfo = [
 	{
 		id: 2,
 		companyName: "Meta",
-		position: "Team Lead",
-		currentPosition: true,
+		position: "Software engineer",
+		currentPosition: false,
 		startDate: "1997",
-		endDate: "2023",
+		endDate: "2015",
 		description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem praesentium voluptatibus unde, cumque omnis sed? ",
 	},
 ]

@@ -34,7 +34,7 @@ function ShowPersonalDetails({ personalInfo, onClick }) {
 					/>
 				</div>
 				<div className="name">
-					<h1>{name ? name : "My name"}</h1>
+					<h1>{name}</h1>
 					<i
 						className="fa-solid fa-pencil"
 						onClick={onClick}></i>
