@@ -21,6 +21,12 @@
 	}
 }
 
+@media (max-width: 400px) {
+	#root {
+		padding: 8px;
+	}
+}
+
 /* UTILITIES */
 
 .hidden {
@@ -100,7 +106,6 @@ aside,
 	margin: 0 auto;
 	width: 100%;
 	max-width: 800px;
-	min-width: 400px;
 }
 
 section {
@@ -114,14 +119,26 @@ section {
 
 	.title-container {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: center;
+		gap: 8px;
 		margin-bottom: 32px;
 
 		> button {
 			display: flex;
 			gap: 8px;
 			align-items: center;
+		}
+	}
+}
+
+@media screen and (max-width: 400px) {
+	section {
+		border-radius: 6px;
+
+		&:not(.personal) {
+			padding: 12px;
 		}
 	}
 }
@@ -215,6 +232,46 @@ section.personal {
 				> i {
 					color: var(--grey-icon);
 					font-size: 16px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 400px) {
+	section.personal {
+		.personal-details-background {
+			height: 90px;
+			background: linear-gradient(90deg, #ff8a8a 0%, #563fe5 100%);
+		}
+
+		.personal-data {
+			position: relative;
+			padding: 16px;
+			padding-top: 62px;
+
+			.additional-data {
+				display: flex;
+				gap: 24px;
+				flex-wrap: wrap;
+				row-gap: 12px;
+
+				> div {
+					display: flex;
+					gap: 8px;
+					align-items: center;
+					max-width: 100%;
+
+					> i {
+						color: var(--grey-icon);
+						font-size: 16px;
+					}
+
+					> p {
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
 				}
 			}
 		}
@@ -445,7 +502,9 @@ section.education {
 /*  ASIDE */
 aside {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
+	gap: 12px;
 
 	#print {
 		> i {
